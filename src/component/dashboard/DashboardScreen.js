@@ -7,10 +7,13 @@ import {
   RefreshControl,
 } from 'react-native';
 import React from 'react';
-import {SafeView} from '../common';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+
+import {SafeView, featureNotReady} from '../common';
 import {Theme} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 import {Profit, TopLeader, TotalBalance} from './DashboardWidget';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const DashboardScreen = ({navigation}) => {
   const [refreshing, setRefreshing] = React.useState(false);
@@ -25,14 +28,31 @@ const DashboardScreen = ({navigation}) => {
     <SafeView>
       <StatusBar
         barStyle={'light-content'}
-        backgroundColor={Theme.color.mainBackground}
+        backgroundColor={Theme.color.navigation}
       />
       <ScrollView
         style={styles.container}
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }>
-        <Text style={styles.title}>Dashboard</Text>
+        <View style={styles.rowBetween}>
+          <View>
+            <Text style={[GlobalStyle.h3, {color: Theme.color.white}]}>
+              Hi, jhon Doe
+            </Text>
+            <Text style={[GlobalStyle.textMd, {color: Theme.color.grey}]}>
+              Welcome back to crypto Apps
+            </Text>
+          </View>
+          <TouchableOpacity onPress={featureNotReady}>
+            <MaterialIcons
+              name="circle-notifications"
+              size={35}
+              color={Theme.color.white}
+              style={{marginTop: Theme.spacing.s}}
+            />
+          </TouchableOpacity>
+        </View>
         <View>
           <Text style={styles.subtitle}>Account Information</Text>
           <View style={{flexDirection: 'row', marginBottom: 15}}>
@@ -64,19 +84,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     paddingTop: 15,
     minHeight: '100%',
-    backgroundColor: Theme.color.mainBackground,
-  },
-  title: {
-    ...GlobalStyle.h1,
-    textAlign: 'center',
-    color: Theme.color.white,
-    marginVertical: 15,
+    backgroundColor: Theme.color.mainBackgroundDarker,
   },
   subtitle: {
     ...GlobalStyle.h3,
     color: Theme.color.white,
     marginTop: 20,
     marginBottom: 8,
+  },
+  rowBetween: {
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
 });
 

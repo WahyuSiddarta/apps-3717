@@ -1,4 +1,10 @@
-import {ActivityIndicator, StyleSheet, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import PieChart from 'react-native-pie-chart';
 
@@ -39,26 +45,54 @@ export const Profit = ({title, localizePrice, isLoading = false}) => (
 );
 
 export const TotalBalance = ({unit, localizePrice}) => {
+  // const sliceColor = ['#384EAA', '#5b38aa', '#3887aa', '#38aa5b'];
+  const sliceColor = ['#e4bc15', '#15e455', '#153de4', '#e415a5'];
+  const series = [100, 130, 100, 100];
+  const {width} = useWindowDimensions();
+  const width_ = ((width - 80) / 2) * 1;
   return (
-    <View
-      style={[
-        styles.container,
-        {
-          minHeight: 40,
-          backgroundColor: Theme.color.primaryColor,
-        },
-      ]}>
-      <Text style={[styles.title, {color: Theme.color.white}]}>
-        Total Balance
-      </Text>
-      <View style={{flexDirection: 'column', marginTop: 8}}>
-        <View style={styles.totalBalanceRow}>
-          <Text style={[GlobalStyle.h3]}>{localizeNumber(localizePrice)}</Text>
-          <Text style={[GlobalStyle.h3]}>{unit}</Text>
-        </View>
-        <View style={styles.totalBalanceRow}>
-          <Text style={[GlobalStyle.h3]}>{localizeNumber(localizePrice)}</Text>
-          <Text style={[GlobalStyle.h3]}>{unit}</Text>
+    <View style={[styles.container]}>
+      <Text style={[styles.title]}>Total Balance</Text>
+      <View style={{flexDirection: 'row', marginTop: 8, gap: Theme.spacing.l}}>
+        <PieChart
+          widthAndHeight={width_}
+          series={series}
+          sliceColor={sliceColor}
+          coverRadius={0.45}
+        />
+        <View style={{justifyContent: 'center', gap: Theme.spacing.s}}>
+          <View style={styles.bulletPointRow}>
+            <View
+              style={[{backgroundColor: sliceColor[0]}, styles.bulletPointBall]}
+            />
+            <Text style={{color: Theme.color.white, ...GlobalStyle.textMd}}>
+              USDT
+            </Text>
+          </View>
+          <View style={styles.bulletPointRow}>
+            <View
+              style={[{backgroundColor: sliceColor[1]}, styles.bulletPointBall]}
+            />
+            <Text style={{color: Theme.color.white, ...GlobalStyle.textMd}}>
+              BTC
+            </Text>
+          </View>
+          <View style={styles.bulletPointRow}>
+            <View
+              style={[{backgroundColor: sliceColor[2]}, styles.bulletPointBall]}
+            />
+            <Text style={{color: Theme.color.white, ...GlobalStyle.textMd}}>
+              USDC
+            </Text>
+          </View>
+          <View style={styles.bulletPointRow}>
+            <View
+              style={[{backgroundColor: sliceColor[3]}, styles.bulletPointBall]}
+            />
+            <Text style={{color: Theme.color.white, ...GlobalStyle.textMd}}>
+              OTHER
+            </Text>
+          </View>
         </View>
       </View>
     </View>
@@ -88,7 +122,7 @@ export const TopLeader = ({}) => {
 const TopLeaderRow = ({data}) => {
   const active = ((data.deals - data.bot) / data.deals) * 100;
   const series = [active, 100 - active];
-  const sliceColor = [Theme.color.green, Theme.color.orange];
+  const sliceColor = ['#153de4', '#e415a5'];
   return (
     <View style={[styles.container, {flexDirection: 'row', marginTop: 8}]}>
       <View style={{justifyContent: 'center', flex: 1, marginRight: 8}}>
@@ -101,30 +135,24 @@ const TopLeaderRow = ({data}) => {
         />
       </View>
       <View style={{justifyContent: 'center', flex: 2}}>
-        <Text style={{color: Theme.color.grey}}>Deals / Bot</Text>
-        <Text style={{color: 'white'}}>
+        <Text style={styles.topLeaderTitle}>Deals / Bot</Text>
+        <Text style={styles.topLeaderContent}>
           {data.deals} / {data.bot}
         </Text>
       </View>
       <View style={{justifyContent: 'center', flex: 2}}>
-        <Text style={{color: Theme.color.grey}}>Pair</Text>
-        <Text style={{color: 'white'}}>{data.name}</Text>
+        <Text style={styles.topLeaderTitle}>Pair</Text>
+        <Text style={styles.topLeaderContent}>{data.name}</Text>
       </View>
       <View style={{justifyContent: 'center', flex: 2}}>
-        <Text style={{color: Theme.color.grey}}>Exchanger</Text>
-        <Text style={{color: 'white'}}>{data.exchanger}</Text>
+        <Text style={styles.topLeaderTitle}>Exchanger</Text>
+        <Text style={styles.topLeaderContent}>{data.exchanger}</Text>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  totalBalanceRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-  },
   loadingContainer: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -132,14 +160,14 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   container: {
-    backgroundColor: Theme.color.primaryColor,
-    borderRadius: 15,
-    paddingVertical: 10,
-    paddingHorizontal: 15,
+    backgroundColor: Theme.color.secondColor,
+    borderRadius: 10,
+    padding: Theme.spacing.m,
   },
   title: {
-    color: Theme.color.grey,
+    color: Theme.color.white,
     textTransform: 'capitalize',
+    marginBottom: Theme.spacing.s,
     ...GlobalStyle.h3,
   },
   profitContent: {
@@ -147,5 +175,24 @@ const styles = StyleSheet.create({
     marginTop: 8,
     alignItems: 'center',
     flexDirection: 'row',
+  },
+  bulletPointRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: Theme.spacing.s,
+  },
+  bulletPointBall: {
+    height: 15,
+    width: 15,
+    borderRadius: 15,
+  },
+  topLeaderTitle: {
+    ...GlobalStyle.textSm,
+    color: Theme.color.grey,
+  },
+  topLeaderContent: {
+    ...GlobalStyle.textMd,
+    fontWeight: 'bold',
+    color: Theme.color.white,
   },
 });

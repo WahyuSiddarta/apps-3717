@@ -48,7 +48,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
         case 'Bot':
@@ -56,7 +56,7 @@ const configTab = ({
             <MaterialCommunityIcons
               name="robot"
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
         case 'Market':
@@ -64,7 +64,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
         case 'Setting':
@@ -72,7 +72,7 @@ const configTab = ({
             <Feather
               name={'user'}
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
         default:
@@ -80,7 +80,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
       }
@@ -90,7 +90,7 @@ const configTab = ({
         <Text
           style={[
             GlobalStyle.textSm,
-            {color: focused ? '#3658d7' : Theme.color.grey},
+            {color: focused ? Theme.color.white : Theme.color.grey},
           ]}>
           {title}
         </Text>
@@ -109,7 +109,7 @@ const configTab = ({
       paddingBottom: 10,
       height: 65,
       display: isHidden ? 'none' : 'flex',
-      backgroundColor: Theme.color.mainBackground,
+      backgroundColor: Theme.color.navigation,
     },
   };
   return tabConfiguration;
