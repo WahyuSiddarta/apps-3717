@@ -12,7 +12,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import {Header, SafeView} from '../common';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 
-const RobotScreenCreate = ({route, navigation}) => {
+const ExchangerListScreen = ({route, navigation}) => {
   const {method} = route.params || {};
   const {height} = useWindowDimensions();
 
@@ -107,4 +107,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RobotScreenCreate;
+export default ExchangerListScreen;

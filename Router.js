@@ -18,8 +18,8 @@ import DashboardScreen from './src/component/dashboard/DashboardScreen';
 import Development from './src/component/development/Development';
 import ProfileScreen from './src/component/user/ProfileScreen';
 import RobotScreen from './src/component/robot/RobotScreen';
-import RobotScreenCreate from './src/component/robot/RobotScreenCreate';
-import RegisterTest from './src/component/Auth/RegisterTest';
+import ExchangerListScreen from './src/component/robot/ExchangerListScreen';
+import MarketScreen from './src/component/market/MarketScreen';
 
 const Tab = createBottomTabNavigator();
 const _initLogin = async signIn => {
@@ -153,7 +153,7 @@ const Router = () => {
         />
         <Tab.Screen
           name="market"
-          component={Development}
+          component={MarketScreen}
           options={configTab({title: 'Market'})}
         />
         <Tab.Screen
@@ -195,7 +195,7 @@ const Router = () => {
         />
         <Stack.Screen
           name="create_robot"
-          component={RobotScreenCreate}
+          component={ExchangerListScreen}
           options={{headerShown: false, animation: 'slide_from_right'}}
         />
       </Stack.Navigator>
