@@ -16,6 +16,8 @@ const palette = {
   goldTips_s_2: '#a0840f',
   goldTips_s_4: '#725e0b',
   grey: '#6a6b70',
+  grey_s_5: '#353638',
+  grey_s_8: '151516',
 };
 
 export const Theme = {
@@ -35,7 +37,10 @@ export const Theme = {
   },
   color: {
     white: palette.white,
+    black: palette.black,
+
     grey: palette.grey,
+    greyDark: palette.grey_s_5,
 
     navigation: palette.azure_d_3,
     mainBackground: palette.azure_s_8,
@@ -51,11 +56,7 @@ export const Theme = {
 
     greyLight: '#F3F3F3',
 
-    black: palette.black,
-
     green: '#368676',
-
-    cbackground: '#000000',
   },
 };
 

@@ -20,7 +20,7 @@ import {GlobalStyle} from '../../_data/Styles';
 import {AuthContext} from '../../_context/AuthContext';
 
 const leftIcon = {
-  size: 16,
+  size: 20,
   color: Theme.color.greyLight,
 };
 const ProfileScreen = ({navigation}) => {
@@ -31,7 +31,7 @@ const ProfileScreen = ({navigation}) => {
     <SafeView>
       <StatusBar
         barStyle={'light-content'}
-        backgroundColor={Theme.color.mainBackground}
+        backgroundColor={Theme.color.mainBackgroundDarker}
       />
       <Header navigation={navigation} headerText="Profile" />
       <ScrollView style={[styles.container, {height: height - 145}]}>
@@ -41,7 +41,7 @@ const ProfileScreen = ({navigation}) => {
             <View
               style={{
                 flex: 1,
-                backgroundColor: Theme.color.primaryColor,
+                backgroundColor: Theme.color.secondColor,
                 borderRadius: 10,
                 paddingHorizontal: 15,
                 paddingVertical: 8,
@@ -63,7 +63,7 @@ const ProfileScreen = ({navigation}) => {
             <View
               style={{
                 flex: 2,
-                backgroundColor: Theme.color.primaryColor,
+                backgroundColor: Theme.color.secondColor,
                 borderRadius: 10,
                 paddingVertical: 10,
                 paddingHorizontal: 15,
@@ -166,14 +166,13 @@ const styles = StyleSheet.create({
   box: {flex: 1},
   container: {
     paddingHorizontal: 25,
-    paddingTop: 15,
-    backgroundColor: Theme.color.mainBackground,
+    backgroundColor: Theme.color.mainBackgroundDarker,
   },
   title: {
     ...GlobalStyle.h1,
     textAlign: 'left',
     color: Theme.color.white,
-    marginVertical: 15,
+    marginVertical: Theme.spacing.s,
   },
   lineview: {
     marginTop: 20,
