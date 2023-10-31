@@ -90,7 +90,7 @@ const RobotScreen = ({navigation}) => {
               <TouchableOpacity
                 style={styles.robotType}
                 onPress={() =>
-                  navigation.push('create_robot', {method: 'DCA'})
+                  navigation.push('exchanger_list', {method: 'DCA'})
                 }>
                 <Foundation
                   name="dollar-bill"
@@ -102,7 +102,7 @@ const RobotScreen = ({navigation}) => {
               <TouchableOpacity
                 style={styles.robotType}
                 onPress={() =>
-                  navigation.push('create_robot', {method: 'Futures'})
+                  navigation.push('exchanger_list', {method: 'Futures'})
                 }>
                 <MaterialCommunityIcons
                   name="finance"
@@ -117,7 +117,7 @@ const RobotScreen = ({navigation}) => {
               <TouchableOpacity
                 style={styles.robotType}
                 onPress={() =>
-                  navigation.push('create_robot', {method: 'GRID'})
+                  navigation.push('exchanger_list', {method: 'GRID'})
                 }>
                 <Ionicons
                   name="md-stats-chart"

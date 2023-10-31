@@ -20,6 +20,7 @@ import ProfileScreen from './src/component/user/ProfileScreen';
 import RobotScreen from './src/component/robot/RobotScreen';
 import ExchangerListScreen from './src/component/robot/ExchangerListScreen';
 import MarketScreen from './src/component/market/MarketScreen';
+import RobotScreenCreate from './src/component/robot/RobotScreenCreate';
 
 const Tab = createBottomTabNavigator();
 const _initLogin = async signIn => {
@@ -195,6 +196,11 @@ const Router = () => {
         />
         <Stack.Screen
           name="create_robot"
+          component={RobotScreenCreate}
+          options={{headerShown: false, animation: 'slide_from_right'}}
+        />
+        <Stack.Screen
+          name="exchanger_list"
           component={ExchangerListScreen}
           options={{headerShown: false, animation: 'slide_from_right'}}
         />

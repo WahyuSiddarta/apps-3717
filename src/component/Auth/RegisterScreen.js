@@ -48,7 +48,8 @@ const RegisterScreen = ({navigation}) => {
           <ScrollView
             style={{marginHorizontal: 25, marginTop: Theme.spacing.xl}}>
             <KeyboardAvoidingView
-              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
+              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+              keyboardVerticalOffset={70}>
               <RegularInput
                 label="Email"
                 placeholder={'example@mail.com'}

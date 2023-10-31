@@ -37,7 +37,9 @@ const ExchangerListScreen = ({route, navigation}) => {
             <OptionSelected
               label={d}
               key={d}
-              handlePress={() => console.log('')}
+              handlePress={() =>
+                navigation.navigate('create_robot', {exchanger_name: d})
+              }
               last={i + 1 === data.length}
             />
           ))}
