@@ -18,8 +18,9 @@ import DashboardScreen from './src/component/dashboard/DashboardScreen';
 import Development from './src/component/development/Development';
 import ProfileScreen from './src/component/user/ProfileScreen';
 import RobotScreen from './src/component/robot/RobotScreen';
+import ExchangerListScreen from './src/component/robot/ExchangerListScreen';
+import MarketScreen from './src/component/market/MarketScreen';
 import RobotScreenCreate from './src/component/robot/RobotScreenCreate';
-import RegisterTest from './src/component/Auth/RegisterTest';
 
 const Tab = createBottomTabNavigator();
 const _initLogin = async signIn => {
@@ -48,7 +49,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
         case 'Bot':
@@ -56,7 +57,7 @@ const configTab = ({
             <MaterialCommunityIcons
               name="robot"
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
         case 'Market':
@@ -64,7 +65,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
         case 'Setting':
@@ -72,7 +73,7 @@ const configTab = ({
             <Feather
               name={'user'}
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
         default:
@@ -80,7 +81,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? '#3658d7' : Theme.color.grey}
+              color={focused ? Theme.color.white : Theme.color.grey}
             />
           );
       }
@@ -90,7 +91,7 @@ const configTab = ({
         <Text
           style={[
             GlobalStyle.textSm,
-            {color: focused ? '#3658d7' : Theme.color.grey},
+            {color: focused ? Theme.color.white : Theme.color.grey},
           ]}>
           {title}
         </Text>
@@ -109,7 +110,7 @@ const configTab = ({
       paddingBottom: 10,
       height: 65,
       display: isHidden ? 'none' : 'flex',
-      backgroundColor: Theme.color.mainBackground,
+      backgroundColor: Theme.color.navigation,
     },
   };
   return tabConfiguration;
@@ -153,7 +154,7 @@ const Router = () => {
         />
         <Tab.Screen
           name="market"
-          component={Development}
+          component={MarketScreen}
           options={configTab({title: 'Market'})}
         />
         <Tab.Screen
@@ -196,6 +197,11 @@ const Router = () => {
         <Stack.Screen
           name="create_robot"
           component={RobotScreenCreate}
+          options={{headerShown: false, animation: 'slide_from_right'}}
+        />
+        <Stack.Screen
+          name="exchanger_list"
+          component={ExchangerListScreen}
           options={{headerShown: false, animation: 'slide_from_right'}}
         />
       </Stack.Navigator>

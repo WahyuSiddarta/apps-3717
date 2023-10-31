@@ -23,7 +23,7 @@ const leftIcon = {
   size: 20,
   color: Theme.color.greyLight,
 };
-const ProfileScreen = ({navigation}) => {
+const MarketScreen = ({navigation}) => {
   const {height} = useWindowDimensions();
   const {signOut} = useContext(AuthContext);
 
@@ -33,7 +33,7 @@ const ProfileScreen = ({navigation}) => {
         barStyle={'light-content'}
         backgroundColor={Theme.color.mainBackgroundDarker}
       />
-      <Header navigation={navigation} headerText="Profile" />
+      <Header navigation={navigation} headerText="Market" />
       <ScrollView style={[styles.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>
           <Text style={styles.title}>Free Tier</Text>
@@ -192,4 +192,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ProfileScreen;
+export default MarketScreen;

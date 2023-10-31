@@ -12,7 +12,7 @@ import {
 import {Svg, Path} from 'react-native-svg';
 import {useContext, useEffect, useState} from 'react';
 
-import {Theme} from '../../_data/Styles';
+import {GlobalStyle, Theme} from '../../_data/Styles';
 import {
   PasswordInput,
   RegularInput,
@@ -29,7 +29,7 @@ const LoginScreen = ({navigation}) => {
     navigation.navigate('main');
   }
 
-  const {width} = useWindowDimensions();
+  const {width, height} = useWindowDimensions();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -51,6 +51,7 @@ const LoginScreen = ({navigation}) => {
       signIn('1234567');
     }, 3000);
   };
+
   return (
     <SafeView style={{flex: 1}}>
       <ScrollView style={styles.container}>
@@ -66,12 +67,12 @@ const LoginScreen = ({navigation}) => {
             />
           </Svg>
         </View>
-        <View style={styles.welcomeContainer}>
+        <View style={[styles.welcomeContainer, {height: height - 110}]}>
           <Text style={styles.title}>Welcome Back!</Text>
           <Text style={styles.subtitle}>Login to Continue</Text>
-          <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
-            <View style={{marginHorizontal: 25, marginTop: 50}}>
+          <View style={{marginHorizontal: 25, marginTop: Theme.spacing.xl}}>
+            <KeyboardAvoidingView
+              behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
               <RegularInput
                 label="Email"
                 placeholder={'example@mail.com'}
@@ -86,7 +87,7 @@ const LoginScreen = ({navigation}) => {
               <TouchableOpacity onPress={featureNotReady}>
                 <Text style={styles.forgetPassword}>Forget Password ?</Text>
               </TouchableOpacity>
-              <View style={{marginTop: 120}}>
+              <View style={{marginTop: Theme.spacing.xl}}>
                 <MyPrimaryButton
                   disabled={!isValid}
                   loading={isLoading}
@@ -94,12 +95,19 @@ const LoginScreen = ({navigation}) => {
                   handlePress={onSumbit}
                 />
               </View>
-              <Text
-                style={{color: 'white', paddingTop: 15, textAlign: 'center'}}>
-                Don't have an account ? Register Here
-              </Text>
-            </View>
-          </KeyboardAvoidingView>
+              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                <Text style={[styles.otherAction, GlobalStyle.textMd]}>
+                  Don't Have Account ?
+                </Text>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('register_screen')}>
+                  <Text style={[GlobalStyle.textMd, styles.otherAction2]}>
+                    {' Register'}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            </KeyboardAvoidingView>
+          </View>
         </View>
       </ScrollView>
     </SafeView>
@@ -107,18 +115,28 @@ const LoginScreen = ({navigation}) => {
 };
 
 const styles = StyleSheet.create({
+  otherAction2: {
+    color: Theme.color.secondColor,
+    paddingTop: Theme.spacing.m,
+  },
+  otherAction: {
+    color: Theme.color.white,
+    textAlign: 'center',
+    paddingTop: Theme.spacing.m,
+  },
   forgetPassword: {
-    color: Theme.color.primaryColor,
+    color: Theme.color.secondColor,
     textAlign: 'right',
-    marginTop: 8,
+    marginTop: Theme.spacing.s,
+    marginBottom: Theme.spacing.xl,
   },
   container: {
     height: '100%',
     backgroundColor: Theme.color.mainBackground,
   },
   welcomeContainer: {
-    marginTop: 120,
-    justifyContent: 'flex-end',
+    marginTop: 100,
+    justifyContent: 'flex-start',
   },
   title: {
     textAlign: 'center',

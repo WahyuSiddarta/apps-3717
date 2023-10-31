@@ -1,16 +1,23 @@
 import {StyleSheet} from 'react-native';
 
+// s => shades
+// t => tint
+// d => darker
 const palette = {
+  white: '#e6e6e7',
+  black: '#000000',
+  mirrage: '#191d35',
   azure: '#384eaa',
-  azure_s_1: '#324699',
-  azure_s_2: '#2d3e88',
-  azure_s_4: '#222f66',
-  azure_s_6: '#161f44',
   azure_s_8: '#0b1022',
+  azure_s_9: '#060811',
+  azure_d_3: '#04060c',
   goldTips: '#e4bc15',
   goldTips_s_1: '#cda913',
   goldTips_s_2: '#a0840f',
   goldTips_s_4: '#725e0b',
+  grey: '#6a6b70',
+  grey_s_5: '#353638',
+  grey_s_8: '151516',
 };
 
 export const Theme = {
@@ -29,22 +36,27 @@ export const Theme = {
     xl: 32,
   },
   color: {
-    white: '#ffffff',
-    mainBackground: '#0b1022',
+    white: palette.white,
+    black: palette.black,
+
+    grey: palette.grey,
+    greyDark: palette.grey_s_5,
+
+    navigation: palette.azure_d_3,
+    mainBackground: palette.azure_s_8,
+    mainBackgroundDarker: palette.azure_s_9,
+
     primaryColor: palette.azure,
-    secondColor: '#E4bc15',
+    secondColor: palette.mirrage,
     orange: '#ff9254',
     red: '#ff6359',
     green: '#0acca2',
 
     currentWhite: '#fefeff',
-    grey: '#8a8a8e',
+
     greyLight: '#F3F3F3',
-    black: '#000000',
 
     green: '#368676',
-
-    cbackground: '#000000',
   },
 };
 

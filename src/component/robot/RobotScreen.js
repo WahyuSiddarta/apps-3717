@@ -90,7 +90,7 @@ const RobotScreen = ({navigation}) => {
               <TouchableOpacity
                 style={styles.robotType}
                 onPress={() =>
-                  navigation.push('create_robot', {method: 'DCA'})
+                  navigation.push('exchanger_list', {method: 'DCA'})
                 }>
                 <Foundation
                   name="dollar-bill"
@@ -102,7 +102,7 @@ const RobotScreen = ({navigation}) => {
               <TouchableOpacity
                 style={styles.robotType}
                 onPress={() =>
-                  navigation.push('create_robot', {method: 'Futures'})
+                  navigation.push('exchanger_list', {method: 'Futures'})
                 }>
                 <MaterialCommunityIcons
                   name="finance"
@@ -117,7 +117,7 @@ const RobotScreen = ({navigation}) => {
               <TouchableOpacity
                 style={styles.robotType}
                 onPress={() =>
-                  navigation.push('create_robot', {method: 'GRID'})
+                  navigation.push('exchanger_list', {method: 'GRID'})
                 }>
                 <Ionicons
                   name="md-stats-chart"
@@ -179,18 +179,18 @@ const styles = StyleSheet.create({
     color: Theme.color.white,
     marginBottom: 8,
   },
-  handleComponent: {backgroundColor: Theme.color.primaryColor},
+  handleComponent: {backgroundColor: Theme.color.secondColor},
   contentContainer: {
     borderTopRightRadius: 15,
     borderTopLeftRadius: 15,
     padding: 15,
     flex: 1,
-    backgroundColor: Theme.color.primaryColor,
+    backgroundColor: Theme.color.secondColor,
   },
   robotType: {
     alignItems: 'center',
     flexDirection: 'column',
-    backgroundColor: '#384eaa',
+    backgroundColor: Theme.color.primaryColor,
     borderRadius: 10,
     padding: 10,
     flex: 1,
