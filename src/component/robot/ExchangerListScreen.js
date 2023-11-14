@@ -28,7 +28,10 @@ const ExchangerListScreen = ({route, navigation}) => {
   ];
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={Theme.color.mainBackgroundDarker}
+      />
       <Header navigation={navigation} headerText="Link Exchanger" />
       <ScrollView style={[styles.container, {height: height - 145}]}>
         <Text style={styles.subtitle}>Exchanger List</Text>
@@ -104,6 +107,12 @@ const styles = StyleSheet.create({
   subtitle: {
     ...GlobalStyle.h3,
     color: Theme.color.grey,
+    marginBottom: Theme.spacing.m,
+    paddingHorizontal: Theme.spacing.l,
+  },
+  headerTitle: {
+    ...GlobalStyle.h3,
+    color: Theme.color.primaryColor,
     marginBottom: Theme.spacing.m,
     paddingHorizontal: Theme.spacing.l,
   },

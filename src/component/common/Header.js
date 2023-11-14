@@ -17,7 +17,9 @@ export const Header = ({navigation, headerText}) => {
             </View>
           </TouchableOpacity>
         )}
-        <Text style={{color: 'white', ...GlobalStyle.h3}}>{headerText}</Text>
+        <Text style={{color: Theme.color.primaryColor, ...GlobalStyle.h3}}>
+          {headerText}
+        </Text>
       </View>
     </View>
   );
