@@ -49,6 +49,7 @@ const RobotScreen = ({navigation}) => {
     console.log('handleSheetChanges', index);
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const onRefresh = useCallback(() => {
     setRefreshing(true);
     setTimeout(() => {

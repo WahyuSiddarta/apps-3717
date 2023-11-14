@@ -69,7 +69,7 @@ const ProfileScreen = ({navigation}) => {
                 paddingHorizontal: 15,
               }}>
               <Text style={styles.optionTextBold}>Balance</Text>
-              <Text style={styles.balanceText}>IDR 0.00</Text>
+              <Text style={styles.balanceText}>USDT 0.00</Text>
             </View>
           </View>
           <Text style={[styles.endingOnText, {marginTop: 10}]}>

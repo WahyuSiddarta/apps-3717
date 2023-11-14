@@ -36,7 +36,7 @@ export const Profit = ({title, localizePrice, isLoading = false}) => (
                 color: localizePrice > 0 ? Theme.color.green : Theme.color.red,
               },
             ]}>
-            $ {localizeNumber(localizePrice)}
+            USDT {localizeNumber(localizePrice)}
           </Text>
         </>
       )}

@@ -7,7 +7,10 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
+import Clipboard from '@react-native-clipboard/clipboard';
+import Snackbar from 'react-native-snackbar';
 
 import {Header, RegularInput, SafeView} from '../common';
 import {GlobalStyle, Theme} from '../../_data/Styles';
@@ -58,6 +61,18 @@ const RobotScreenCreate = ({route, navigation}) => {
 
     setValidate(validate);
   };
+
+  const codeKey =
+    '13.213.132.125 13.215.83.60 18.139.102.94 3.1.7.213 46.137.215.117 52.220.111.151 52.220.117.151 52.220.31.227 52.77.45.93 54.169.15.234';
+  const copyKey = param => {
+    Clipboard.setString(param);
+
+    Snackbar.show({
+      text: param + ' Copied',
+      duration: Snackbar.LENGTH_SHORT,
+    });
+  };
+
   return (
     <SafeView>
       <StatusBar barStyle={'light-content'} />
@@ -69,11 +84,15 @@ const RobotScreenCreate = ({route, navigation}) => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={20}>
         <ScrollView style={[styles.container, {height: height - 75}]}>
-          <Text style={styles.subtitle}>
-            orem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s{' '}
-          </Text>
+          <View>
+            <Text style={styles.subtitleTitle}>
+              Please activate trading authority
+            </Text>
+            <Text style={styles.subtitle}>
+              API is encrypted by AES, and transmitted by asymmetric encryption
+              when in use, so there is no need to worry about leakage.
+            </Text>
+          </View>
           <View style={styles.cardExchanger}>
             <RegularInput
               label="Name"
@@ -97,6 +116,24 @@ const RobotScreenCreate = ({route, navigation}) => {
               />
             </View>
           </View>
+          <View style={{flexDirection: 'row', marginTop: Theme.spacing.m}}>
+            <View style={{flex: 0.8}}>
+              <Text style={styles.keyText}>{codeKey}</Text>
+            </View>
+            <View style={{flex: 0.2, alignSelf: 'center'}}>
+              <TouchableOpacity onPress={() => copyKey(codeKey)}>
+                <Text style={styles.copyText}>Copy</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View>
+            <Text style={styles.tipsTitle}>Tips:</Text>
+            <Text style={styles.tipsDesc}>
+              For account assets security and convenient access to transaction
+              data, it is suggest that you re-apply for the API and do not share
+              it with other products or services.
+            </Text>
+          </View>
         </ScrollView>
       </KeyboardAvoidingView>
     </SafeView>
@@ -115,12 +152,44 @@ const styles = StyleSheet.create({
     gap: Theme.spacing.s,
     // borderRadius: 10,
   },
+  subtitleTitle: {
+    ...GlobalStyle.h3Bold,
+    color: Theme.color.grey,
+    marginBottom: Theme.spacing.s,
+    paddingHorizontal: Theme.spacing.l,
+    textAlign: 'justify',
+  },
   subtitle: {
     ...GlobalStyle.textMd,
     color: Theme.color.grey,
     marginBottom: Theme.spacing.m,
     paddingHorizontal: Theme.spacing.l,
     textAlign: 'justify',
+  },
+  keyText: {
+    ...GlobalStyle.textMd,
+    color: Theme.color.grey,
+    marginBottom: Theme.spacing.m,
+    paddingHorizontal: Theme.spacing.l,
+  },
+  copyText: {
+    ...GlobalStyle.textMdBold,
+    color: Theme.color.yellow,
+    marginBottom: Theme.spacing.m,
+    paddingHorizontal: Theme.spacing.l,
+    textAlign: 'left',
+  },
+  tipsTitle: {
+    ...GlobalStyle.h3Bold,
+    color: Theme.color.grey,
+    marginBottom: Theme.spacing.s,
+    paddingHorizontal: Theme.spacing.l,
+  },
+  tipsDesc: {
+    ...GlobalStyle.textMd,
+    color: Theme.color.grey,
+    marginBottom: Theme.spacing.m,
+    paddingHorizontal: Theme.spacing.l,
   },
 });
 

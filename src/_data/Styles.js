@@ -57,6 +57,8 @@ export const Theme = {
     greyLight: '#F3F3F3',
 
     green: '#368676',
+
+    yellow: palette.goldTips,
   },
 };
 
@@ -71,6 +73,10 @@ export const GlobalStyle = StyleSheet.create({
   },
   textMd: {
     fontFamily: Theme.fontRoboto,
+    fontSize: 14,
+  },
+  textMdBold: {
+    fontFamily: Theme.fontRobotoBold,
     fontSize: 14,
   },
   h3Bold: {
