@@ -75,7 +75,7 @@ const RobotScreenCreate = ({route, navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} />
+      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
       <Header
         navigation={navigation}
         headerText={'Connect ' + (!!exchanger_name ? exchanger_name : '')}
@@ -84,7 +84,7 @@ const RobotScreenCreate = ({route, navigation}) => {
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={20}>
         <ScrollView style={[styles.container, {height: height - 75}]}>
-          <View>
+          <View style={{marginTop: 10}}>
             <Text style={styles.subtitleTitle}>
               Please activate trading authority
             </Text>
@@ -143,10 +143,12 @@ const RobotScreenCreate = ({route, navigation}) => {
 const styles = StyleSheet.create({
   container: {
     // paddingHorizontal: Theme.spacing.l,
-    backgroundColor: Theme.color.navigation,
+    // backgroundColor: Theme.color.navigation,
+    backgroundColor: '#0b1022',
   },
   cardExchanger: {
-    backgroundColor: Theme.color.mainBackgroundDarker,
+    // backgroundColor: Theme.color.mainBackgroundDarker,
+    backgroundColor: '#0b1022',
     paddingHorizontal: Theme.spacing.l,
     paddingVertical: Theme.spacing.s,
     gap: Theme.spacing.s,

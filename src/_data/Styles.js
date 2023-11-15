@@ -11,6 +11,7 @@ const palette = {
   azureDarken: '#3423A6',
   azure_s_8: '#0b1022',
   azure_s_9: '#060811',
+  azure_s_7: '#111733',
   azure_d_3: '#04060c',
   goldTips: '#e4bc15',
   goldTips_s_1: '#cda913',
@@ -46,6 +47,7 @@ export const Theme = {
     navigation: palette.azure_d_3,
     mainBackground: palette.azure_s_8,
     mainBackgroundDarker: palette.azure_s_9,
+    mainBackgroundLigher: palette.azure_s_7,
 
     primaryColor: palette.azure,
     azureDarkenColor: palette.azureDarken,

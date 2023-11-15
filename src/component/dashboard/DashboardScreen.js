@@ -26,7 +26,7 @@ const DashboardScreen = ({navigation}) => {
   }, []);
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} hidden />
+      <StatusBar barStyle={'light-content'} backgroundColor={'#0b1022'} />
       <ScrollView
         style={styles.container}
         refreshControl={
@@ -81,7 +81,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     paddingTop: 15,
     minHeight: '100%',
-    backgroundColor: Theme.color.mainBackgroundDarker,
+    // backgroundColor: Theme.color.mainBackgroundDarker,
+    backgroundColor: '#0b1022',
   },
   subtitle: {
     ...GlobalStyle.h3,

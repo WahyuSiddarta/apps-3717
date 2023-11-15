@@ -17,7 +17,7 @@ export const Header = ({navigation, headerText}) => {
             </View>
           </TouchableOpacity>
         )}
-        <Text style={{color: Theme.color.primaryColor, ...GlobalStyle.h3}}>
+        <Text style={{color: Theme.color.white, ...GlobalStyle.h2}}>
           {headerText}
         </Text>
       </View>
@@ -32,11 +32,13 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: Theme.color.black,
+    // backgroundColor: Theme.color.black,
+    backgroundColor: '#111733',
   },
   iconRightContainer: {flexDirection: 'row'},
   iconContainer: {
-    backgroundColor: Theme.color.greyDark,
+    // backgroundColor: Theme.color.greyDark,
+    backgroundColor: '#384eaa',
     borderRadius: 20,
     width: 30,
     height: 30,

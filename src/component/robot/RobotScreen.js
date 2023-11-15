@@ -59,80 +59,81 @@ const RobotScreen = ({navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={Theme.color.mainBackground}
-      />
-      <BottomSheetModalProvider>
-        <ScrollView
-          refreshControl={
-            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-          }>
-          <EmptyRobot onSubmit={handlePresentModalPress} />
-        </ScrollView>
-        <BottomSheetModal
-          enablePanDownToClose
-          ref={bottomSheetModalRef}
-          handleComponent={null}
-          snapPoints={[150]}
-          onChange={handleSheetChanges}
-          backdropComponent={renderBackdrop}>
-          <View style={styles.contentContainer}>
-            <Text
-              style={{
-                color: 'white',
-                textAlign: 'center',
-                marginBottom: 15,
-                ...GlobalStyle.h3Bold,
-              }}>
-              Traiding Strategy
-            </Text>
-            <View style={{flexDirection: 'row', gap: 15}}>
-              <TouchableOpacity
-                style={styles.robotType}
-                onPress={() =>
-                  navigation.push('exchanger_list', {method: 'DCA'})
-                }>
-                <Foundation
-                  name="dollar-bill"
-                  size={35}
-                  color={Theme.color.greyLight}
-                />
-                <Text style={{color: 'white', ...GlobalStyle.textMd}}>DCA</Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.robotType}
-                onPress={() =>
-                  navigation.push('exchanger_list', {method: 'Futures'})
-                }>
-                <MaterialCommunityIcons
-                  name="finance"
-                  size={35}
-                  style={{flex: 1}}
-                  color={Theme.color.greyLight}
-                />
-                <Text style={{color: 'white', ...GlobalStyle.textMd}}>
-                  Futures
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.robotType}
-                onPress={() =>
-                  navigation.push('exchanger_list', {method: 'GRID'})
-                }>
-                <Ionicons
-                  name="md-stats-chart"
-                  size={35}
-                  color={Theme.color.greyLight}
-                />
-                <Text style={{color: 'white', ...GlobalStyle.textMd}}>
-                  Grid
-                </Text>
-              </TouchableOpacity>
+      <StatusBar barStyle={'light-content'} backgroundColor={'#0b1022'} />
+      <View style={{backgroundColor: '#0b1022'}}>
+        <BottomSheetModalProvider>
+          <ScrollView
+            refreshControl={
+              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+            }>
+            <EmptyRobot onSubmit={handlePresentModalPress} />
+          </ScrollView>
+          <BottomSheetModal
+            enablePanDownToClose
+            ref={bottomSheetModalRef}
+            handleComponent={null}
+            snapPoints={[150]}
+            onChange={handleSheetChanges}
+            backdropComponent={renderBackdrop}>
+            <View style={styles.contentContainer}>
+              <Text
+                style={{
+                  color: 'white',
+                  textAlign: 'center',
+                  marginBottom: 15,
+                  ...GlobalStyle.h3Bold,
+                }}>
+                Traiding Strategy
+              </Text>
+              <View style={{flexDirection: 'row', gap: 15}}>
+                <TouchableOpacity
+                  style={styles.robotType}
+                  onPress={() =>
+                    navigation.push('exchanger_list', {method: 'DCA'})
+                  }>
+                  <Foundation
+                    name="dollar-bill"
+                    size={35}
+                    color={Theme.color.greyLight}
+                  />
+                  <Text style={{color: 'white', ...GlobalStyle.textMd}}>
+                    DCA
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.robotType}
+                  onPress={() =>
+                    navigation.push('exchanger_list', {method: 'Futures'})
+                  }>
+                  <MaterialCommunityIcons
+                    name="finance"
+                    size={35}
+                    style={{flex: 1}}
+                    color={Theme.color.greyLight}
+                  />
+                  <Text style={{color: 'white', ...GlobalStyle.textMd}}>
+                    Futures
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.robotType}
+                  onPress={() =>
+                    navigation.push('exchanger_list', {method: 'GRID'})
+                  }>
+                  <Ionicons
+                    name="md-stats-chart"
+                    size={35}
+                    color={Theme.color.greyLight}
+                  />
+                  <Text style={{color: 'white', ...GlobalStyle.textMd}}>
+                    Grid
+                  </Text>
+                </TouchableOpacity>
+              </View>
             </View>
-          </View>
-        </BottomSheetModal>
-      </BottomSheetModalProvider>
+          </BottomSheetModal>
+        </BottomSheetModalProvider>
+      </View>
     </SafeView>
   );
 };

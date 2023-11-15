@@ -160,7 +160,8 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   container: {
-    backgroundColor: Theme.color.secondColor,
+    // backgroundColor: Theme.color.secondColor,
+    backgroundColor: '#1c2755',
     borderRadius: 10,
     padding: Theme.spacing.m,
   },

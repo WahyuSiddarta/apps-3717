@@ -29,10 +29,7 @@ const MarketScreen = ({navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={Theme.color.mainBackgroundDarker}
-      />
+      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
       <Header navigation={navigation} headerText="Market" />
       <ScrollView style={[styles.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>
@@ -166,7 +163,8 @@ const styles = StyleSheet.create({
   box: {flex: 1},
   container: {
     paddingHorizontal: 25,
-    backgroundColor: Theme.color.mainBackgroundDarker,
+    // backgroundColor: Theme.color.mainBackgroundDarker,
+    backgroundColor: '#0b1022',
   },
   title: {
     ...GlobalStyle.h1,

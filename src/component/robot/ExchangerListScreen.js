@@ -28,13 +28,16 @@ const ExchangerListScreen = ({route, navigation}) => {
   ];
   return (
     <SafeView>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={Theme.color.mainBackgroundDarker}
-      />
+      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
       <Header navigation={navigation} headerText="Link Exchanger" />
-      <ScrollView style={[styles.container, {height: height - 145}]}>
-        <Text style={styles.subtitle}>Exchanger List</Text>
+      <ScrollView
+        style={[
+          styles.container,
+          {height: height, backgroundColor: '#0b1022'},
+        ]}>
+        <View style={{marginTop: 10}}>
+          <Text style={styles.subtitle}>Exchanger List</Text>
+        </View>
         <View style={styles.cardExchanger}>
           {data.map((d, i) => (
             <OptionSelected
@@ -94,7 +97,8 @@ const styles = StyleSheet.create({
     backgroundColor: Theme.color.navigation,
   },
   cardExchanger: {
-    backgroundColor: Theme.color.mainBackgroundDarker,
+    // backgroundColor: Theme.color.mainBackgroundLigher,
+    backgroundColor: '#0b1022',
     paddingHorizontal: Theme.spacing.l,
     paddingVertical: Theme.spacing.s,
     gap: Theme.spacing.s,
