@@ -27,6 +27,7 @@ const _initLogin = async signIn => {
   try {
     let user = await _getData('user');
     user = JSON.parse(user);
+    // eslint-disable-next-line no-extra-boolean-cast
     if (!!user?.user_id) {
       signIn(user?.user_id);
     }
@@ -104,6 +105,7 @@ const configTab = ({
       marginTop: 5,
       textAlign: 'center',
     },
+    tabBarLabelPosition: 'below-icon',
     tabBarHideOnKeyboard: true,
     tabBarStyle: {
       paddingTop: 10,
@@ -121,6 +123,7 @@ const Router = () => {
 
   useEffect(() => {
     _initLogin(signIn);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const routeNameRef = React.useRef();
@@ -139,6 +142,7 @@ const Router = () => {
     routeNameRef.current = currentRouteName;
   };
 
+  // eslint-disable-next-line react/no-unstable-nested-components
   const ScreenTabs = () => {
     return (
       <Tab.Navigator initialRouteName={'home'} backBehavior={'initialRoute'}>

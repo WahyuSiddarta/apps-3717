@@ -31,6 +31,7 @@ const RobotScreen = ({navigation}) => {
 
   const renderBackdrop = useCallback(
     props => (
+      // eslint-disable-next-line react/react-in-jsx-scope
       <BottomSheetBackdrop
         {...props}
         appearsOnIndex={1}
@@ -58,6 +59,7 @@ const RobotScreen = ({navigation}) => {
   });
 
   return (
+    // eslint-disable-next-line react/react-in-jsx-scope
     <SafeView>
       <StatusBar barStyle={'light-content'} backgroundColor={'#0b1022'} />
       <View style={{backgroundColor: '#0b1022'}}>

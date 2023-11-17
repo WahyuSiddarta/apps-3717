@@ -116,7 +116,7 @@ const LoginScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   otherAction2: {
-    color: Theme.color.secondColor,
+    color: Theme.color.grey,
     paddingTop: Theme.spacing.m,
   },
   otherAction: {
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     paddingTop: Theme.spacing.m,
   },
   forgetPassword: {
-    color: Theme.color.secondColor,
+    color: Theme.color.grey,
     textAlign: 'right',
     marginTop: Theme.spacing.s,
     marginBottom: Theme.spacing.xl,
