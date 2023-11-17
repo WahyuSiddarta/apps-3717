@@ -9,3 +9,4 @@ export const optionLang = [
   {key: 'English', id: 'en'},
   {key: 'Indonesia', id: 'id'},
 ];
+export const FOLD_SIZE = 640;

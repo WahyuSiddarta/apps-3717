@@ -32,10 +32,10 @@ export const Theme = {
     bold: 'bold',
   },
   spacing: {
-    s: 8,
-    m: 16,
-    l: 24,
-    xl: 32,
+    s: 7,
+    m: 14,
+    l: 21,
+    xl: 28,
   },
   color: {
     white: palette.white,

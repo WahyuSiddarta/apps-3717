@@ -73,45 +73,53 @@ const ProfileScreen = ({navigation}) => {
             Ending On: 22 Januari 2023
           </Text>
         </View>
-        <View style={{paddingBottom: 30}}>
-          <LineView text="User" />
-          <OptionSelected
-            iconComponent={
-              <MaterialCommunityIcons name="security" {...leftIcon} />
-            }
-            label="Change Password"
-            handlePress={featureNotReady}
-          />
-          <LineView text="Notifikasi" />
-          <OptionSelected
-            label="Telegram Channel"
-            iconComponent={
-              <FontAwesome5Brands name="telegram-plane" {...leftIcon} />
-            }
-            handlePress={featureNotReady}
-          />
-          <OptionSelected
-            label="Push Notification"
-            handlePress={featureNotReady}
-            iconComponent={<MaterialCommunityIcons name="bell" {...leftIcon} />}
-          />
-          <LineView text="Other" />
-          <OptionSelected
-            label="Privacy Policy"
-            handlePress={featureNotReady}
-            iconComponent={<MaterialIcons name="privacy-tip" {...leftIcon} />}
-          />
+        <View style={{paddingBottom: 30, gap: Theme.spacing.m}}>
+          <View style={{gap: Theme.spacing.s}}>
+            <LineView text="User" />
+            <OptionSelected
+              iconComponent={
+                <MaterialCommunityIcons name="security" {...leftIcon} />
+              }
+              label="Change Password"
+              handlePress={featureNotReady}
+            />
+          </View>
+          <View style={{gap: Theme.spacing.s}}>
+            <LineView text="Notifikasi" />
+            <OptionSelected
+              label="Telegram Channel"
+              iconComponent={
+                <FontAwesome5Brands name="telegram-plane" {...leftIcon} />
+              }
+              handlePress={featureNotReady}
+            />
+            <OptionSelected
+              label="Push Notification"
+              handlePress={featureNotReady}
+              iconComponent={
+                <MaterialCommunityIcons name="bell" {...leftIcon} />
+              }
+            />
+          </View>
+          <View style={{gap: Theme.spacing.s}}>
+            <LineView text="Other" />
+            <OptionSelected
+              label="Privacy Policy"
+              handlePress={featureNotReady}
+              iconComponent={<MaterialIcons name="privacy-tip" {...leftIcon} />}
+            />
 
-          <OptionSelected
-            label="Version"
-            content={'0.0.1'}
-            iconComponent={<FontAwesome name="gear" {...leftIcon} />}
-          />
-          <OptionSelected
-            label="Logout"
-            handlePress={signOut}
-            iconComponent={<Feather name="power" {...leftIcon} />}
-          />
+            <OptionSelected
+              label="Version"
+              content={'0.0.1'}
+              iconComponent={<FontAwesome name="gear" {...leftIcon} />}
+            />
+            <OptionSelected
+              label="Logout"
+              handlePress={signOut}
+              iconComponent={<Feather name="power" {...leftIcon} />}
+            />
+          </View>
         </View>
       </ScrollView>
     </SafeView>
@@ -174,13 +182,12 @@ const styles = StyleSheet.create({
   },
   lineview: {
     marginTop: 20,
-    marginBottom: 6,
     borderBottomWidth: 0.5,
     borderColor: Theme.color.grey,
   },
   lineviewText: {
     color: Theme.color.grey,
-    paddingBottom: 8,
+    paddingBottom: Theme.spacing.s,
     ...GlobalStyle.textSm,
   },
   optionBox: {

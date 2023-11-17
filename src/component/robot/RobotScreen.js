@@ -22,6 +22,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {SafeView} from '../common';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 import {MyPrimaryButton} from '../common/Button';
+import {FOLD_SIZE} from '../../_data/data';
 // import CreateRobot from './CreateRobot';
 
 const RobotScreen = ({navigation}) => {
@@ -141,13 +142,22 @@ const RobotScreen = ({navigation}) => {
 };
 
 const EmptyRobot = ({onSubmit}) => {
-  const {height} = useWindowDimensions();
+  const {height, width} = useWindowDimensions();
+  const [isFold, setIsFold] = useState(false);
   const animationRef = useRef(null);
   useEffect(() => {
     animationRef.current?.play();
     // Or set a specific startFrame and endFrame with:
     animationRef.current?.play(30, 120);
   }, []);
+
+  useEffect(() => {
+    if (width >= FOLD_SIZE) {
+      setIsFold(true);
+    } else {
+      setIsFold(false);
+    }
+  }, [width]);
 
   return (
     <View style={[styles.botContainer, {height: height + 30}]}>
@@ -156,7 +166,7 @@ const EmptyRobot = ({onSubmit}) => {
         style={{marginTop: -100}}
         source={require('../../../assets/lottie/robot-error.json')}
       />
-      <Text style={[styles.title, {marginTop: 275}]}>
+      <Text style={[styles.title, {marginTop: isFold ? 600 : 300}]}>
         You don't have any bots
       </Text>
       <Text style={[styles.subtitle]}>Start by creating new bots</Text>
