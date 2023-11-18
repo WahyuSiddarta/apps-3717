@@ -57,14 +57,6 @@ const DashboardScreen = ({navigation}) => {
               <TotalBalance unit={'BTC'} localizePrice={100} />
             </View>
           </View>
-          <View style={{flexDirection: 'row', gap: 15}}>
-            <View style={styles.box}>
-              <Profit localizePrice={10} title={'Realized Profit'} />
-            </View>
-            <View style={styles.box}>
-              <Profit localizePrice={-34} title={'Today Profit'} />
-            </View>
-          </View>
         </View>
         <View style={{marginTop: 20}}>
           <TopLeader />

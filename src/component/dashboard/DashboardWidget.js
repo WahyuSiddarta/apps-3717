@@ -11,6 +11,7 @@ import PieChart from 'react-native-pie-chart';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 import {localizeNumber} from '../../_helpers/utils';
 
+const {spacing, color} = Theme;
 export const Profit = ({title, localizePrice, isLoading = false}) => (
   <View style={styles.container}>
     <Text style={styles.title}>{title}</Text>
@@ -51,8 +52,28 @@ export const TotalBalance = ({unit, localizePrice}) => {
   const {width} = useWindowDimensions();
   const width_ = ((width - 80) / 2) * 1;
   return (
-    <View style={[styles.container]}>
-      <Text style={[styles.title]}>Total Balance</Text>
+    <View style={[styles.container, {gap: spacing.m}]}>
+      <View style={{gap: spacing.s / 2}}>
+        <Text style={[GlobalStyle.h3, {color: Theme.color.grey}]}>
+          Total Balance
+        </Text>
+        <Text style={[GlobalStyle.h3, {color: Theme.color.white}]}>$1,503</Text>
+      </View>
+
+      <View style={{gap: spacing.s / 2}}>
+        <Text style={[GlobalStyle.textSm, {color: Theme.color.grey}]}>
+          Today PNL
+        </Text>
+        <Text style={[GlobalStyle.textMd, {color: Theme.color.green}]}>
+          +$304.3 / 12.2%
+        </Text>
+      </View>
+      <View
+        style={{
+          borderBottomWidth: 0.5,
+          borderColor: Theme.color.grey,
+        }}
+      />
       <View style={{flexDirection: 'row', marginTop: 8, gap: Theme.spacing.l}}>
         <PieChart
           widthAndHeight={width_}
@@ -122,7 +143,7 @@ export const TopLeader = ({}) => {
 const TopLeaderRow = ({data}) => {
   const active = ((data.deals - data.bot) / data.deals) * 100;
   const series = [active, 100 - active];
-  const sliceColor = ['#153de4', '#e415a5'];
+  const sliceColor = ['#765793', '#89b39f'];
   return (
     <View style={[styles.container, {flexDirection: 'row', marginTop: 8}]}>
       <View style={{justifyContent: 'center', flex: 1, marginRight: 8}}>
@@ -163,7 +184,7 @@ const styles = StyleSheet.create({
     // backgroundColor: Theme.color.secondColor,
     backgroundColor: '#1c2755',
     borderRadius: 10,
-    padding: Theme.spacing.m,
+    padding: Theme.spacing.l,
   },
   title: {
     color: Theme.color.white,

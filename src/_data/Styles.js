@@ -4,7 +4,7 @@ import {StyleSheet} from 'react-native';
 // t => tint
 // d => darker
 const palette = {
-  white: '#e6e6e7',
+  white: '#ffffff',
   black: '#000000',
   mirrage: '#191d35',
   azure: '#384eaa',
@@ -41,7 +41,8 @@ export const Theme = {
     white: palette.white,
     black: palette.black,
 
-    grey: palette.grey,
+    // grey: palette.grey,
+    grey: '#a7aac3',
     greyDark: palette.grey_s_5,
 
     navigation: palette.azure_d_3,
