@@ -13,6 +13,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome5Brands from 'react-native-vector-icons/FontAwesome5Pro';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import {Header, SafeView, featureNotReady} from '../common';
 import {Theme} from '../../_data/Styles';
@@ -33,85 +34,396 @@ const MarketScreen = ({navigation}) => {
       <Header navigation={navigation} headerText="Market" />
       <ScrollView style={[styles.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>
-          <Text style={styles.title}>Free Tier</Text>
-          <View style={{flexDirection: 'row', gap: 10}}>
+          <Text
+            style={{
+              ...GlobalStyle.textMdBold,
+              textAlign: 'left',
+              color: Theme.color.white,
+              marginTop: Theme.spacing.s,
+            }}>
+            Trending Traders
+          </Text>
+          <Text
+            style={{
+              color: Theme.color.white,
+              ...GlobalStyle.textSmaller,
+            }}>
+            Trending traders in the last 7-days
+          </Text>
+          {/* 1 */}
+          <View
+            style={{flexDirection: 'row', gap: 10, marginTop: Theme.spacing.l}}>
             <View
               style={{
                 flex: 1,
                 backgroundColor: Theme.color.secondColor,
                 borderRadius: 10,
+                paddingVertical: 10,
                 paddingHorizontal: 15,
-                paddingVertical: 8,
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '100%',
               }}>
-              <MaterialCommunityIcons
-                name="robot"
-                size={35}
-                style={{flex: 1}}
-                color={Theme.color.greyLight}
-              />
-              <Text style={[styles.optionTextBold, {flex: 1, paddingTop: 6}]}>
-                0 / 1
-              </Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={{flex: 0.8}}>
+                  <Text
+                    style={{
+                      color: Theme.color.white,
+                      ...GlobalStyle.textMdBold,
+                    }}>
+                    XRP-USDT
+                  </Text>
+                  <Text
+                    style={{
+                      color: Theme.color.white,
+                      ...GlobalStyle.textMd,
+                    }}>
+                    Binance Futures
+                  </Text>
+                </View>
+                <View style={{flex: 0.2}}>
+                  <View
+                    style={{
+                      backgroundColor: '#122499',
+                      borderRadius: 10,
+                      paddingVertical: 7,
+                      paddingHorizontal: 10,
+                      width: '100%',
+                      alignItems: 'center',
+                    }}>
+                    <Text
+                      style={{
+                        color: Theme.color.white,
+                        ...GlobalStyle.textSm,
+                      }}>
+                      Copy
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  gap: 10,
+                  marginTop: Theme.spacing.m,
+                }}>
+                <View style={{flex: 0.3}}>
+                  <View style={{flexDirection: 'column'}}>
+                    <View>
+                      <Text
+                        style={{
+                          color: '#198052',
+                          ...GlobalStyle.textMdBold,
+                        }}>
+                        +622.18%
+                      </Text>
+                    </View>
+                    <View style={{marginTop: 5}}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textSmaller,
+                        }}>
+                        30D ROI
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View style={{flex: 0.2}}>
+                  <FontAwesome5 name="chart-line" size={40} color={'#198052'} />
+                </View>
+                <View style={{flex: 0.3}}>
+                  <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                    <View>
+                      <Text style={styles.optionTextBold}>3514</Text>
+                    </View>
+                    <View style={{marginTop: 5}}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textSmaller,
+                        }}>
+                        Copier
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+
+                <View style={{flex: 0.2}}>
+                  <View style={{flexDirection: 'column'}}>
+                    <View
+                      style={{
+                        borderRadius: 3,
+                        backgroundColor: '#b3a042',
+                        width: 20,
+                        alignItems: 'center',
+                      }}>
+                      <Text style={styles.optionTextBold}>5</Text>
+                    </View>
+                    <View style={{marginTop: 5}}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textSmaller,
+                        }}>
+                        Risk
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
             </View>
+          </View>
+
+          {/* 2 */}
+          <View
+            style={{flexDirection: 'row', gap: 10, marginTop: Theme.spacing.l}}>
             <View
               style={{
-                flex: 2,
+                flex: 1,
                 backgroundColor: Theme.color.secondColor,
                 borderRadius: 10,
                 paddingVertical: 10,
                 paddingHorizontal: 15,
               }}>
-              <Text style={styles.optionTextBold}>Balance</Text>
-              <Text style={styles.balanceText}>USDT 0.00</Text>
+              <View style={{flexDirection: 'row'}}>
+                <View style={{flex: 0.8}}>
+                  <Text
+                    style={{
+                      color: Theme.color.white,
+                      ...GlobalStyle.textMdBold,
+                    }}>
+                    FTM-USDT
+                  </Text>
+                  <Text
+                    style={{
+                      color: Theme.color.white,
+                      ...GlobalStyle.textMd,
+                    }}>
+                    ByBit USDT Perpetual
+                  </Text>
+                </View>
+                <View style={{flex: 0.2}}>
+                  <View
+                    style={{
+                      backgroundColor: '#122499',
+                      borderRadius: 10,
+                      paddingVertical: 7,
+                      paddingHorizontal: 10,
+                      width: '100%',
+                      alignItems: 'center',
+                    }}>
+                    <Text
+                      style={{
+                        color: Theme.color.white,
+                        ...GlobalStyle.textSm,
+                      }}>
+                      Copy
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  gap: 10,
+                  marginTop: Theme.spacing.m,
+                }}>
+                <View style={{flex: 0.3}}>
+                  <View style={{flexDirection: 'column'}}>
+                    <View>
+                      <Text
+                        style={{
+                          color: '#198052',
+                          ...GlobalStyle.textMdBold,
+                        }}>
+                        +292.66%
+                      </Text>
+                    </View>
+                    <View style={{marginTop: 5}}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textSmaller,
+                        }}>
+                        30D ROI
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View style={{flex: 0.2}}>
+                  <FontAwesome5 name="chart-line" size={40} color={'#198052'} />
+                </View>
+                <View style={{flex: 0.3}}>
+                  <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                    <View>
+                      <Text style={styles.optionTextBold}>371</Text>
+                    </View>
+                    <View style={{marginTop: 5}}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textSmaller,
+                        }}>
+                        Copier
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+
+                <View style={{flex: 0.2}}>
+                  <View style={{flexDirection: 'column'}}>
+                    {/* <View
+                      style={{
+                        borderRadius: 3,
+                        backgroundColor: '#b3a042',
+                        width: 20,
+                        alignItems: 'center',
+                      }}>
+                      <Text style={styles.optionTextBold}>5</Text>
+                    </View> */}
+                    <View>
+                      <Text style={styles.optionTextBold}>--</Text>
+                    </View>
+                    <View style={{marginTop: 5}}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textSmaller,
+                        }}>
+                        Risk
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
             </View>
           </View>
-          <Text style={[styles.endingOnText, {marginTop: 10}]}>
-            Ending On: 22 Januari 2023
-          </Text>
-        </View>
-        <View style={{paddingBottom: 30}}>
-          <LineView text="User" />
-          <OptionSelected
-            iconComponent={
-              <MaterialCommunityIcons name="security" {...leftIcon} />
-            }
-            label="Change Password"
-            handlePress={featureNotReady}
-          />
-          <LineView text="Notifikasi" />
-          <OptionSelected
-            label="Telegram Channel"
-            iconComponent={
-              <FontAwesome5Brands name="telegram-plane" {...leftIcon} />
-            }
-            handlePress={featureNotReady}
-          />
-          <OptionSelected
-            label="Push Notification"
-            handlePress={featureNotReady}
-            iconComponent={<MaterialCommunityIcons name="bell" {...leftIcon} />}
-          />
-          <LineView text="Other" />
-          <OptionSelected
-            label="Privacy Policy"
-            handlePress={featureNotReady}
-            iconComponent={<MaterialIcons name="privacy-tip" {...leftIcon} />}
-          />
 
-          <OptionSelected
-            label="Version"
-            content={'0.0.1'}
-            iconComponent={<FontAwesome name="gear" {...leftIcon} />}
-          />
-          <OptionSelected
-            label="Logout"
-            handlePress={signOut}
-            iconComponent={<Feather name="power" {...leftIcon} />}
-          />
+          {/* 3 */}
+          <View
+            style={{flexDirection: 'row', gap: 10, marginTop: Theme.spacing.l}}>
+            <View
+              style={{
+                flex: 1,
+                backgroundColor: Theme.color.secondColor,
+                borderRadius: 10,
+                paddingVertical: 10,
+                paddingHorizontal: 15,
+              }}>
+              <View style={{flexDirection: 'row'}}>
+                <View style={{flex: 0.8}}>
+                  <Text
+                    style={{
+                      color: Theme.color.white,
+                      ...GlobalStyle.textMdBold,
+                    }}>
+                    ORDI-USDT
+                  </Text>
+                  <Text
+                    style={{
+                      color: Theme.color.white,
+                      ...GlobalStyle.textMd,
+                    }}>
+                    ByBit USDT Perpetual
+                  </Text>
+                </View>
+                <View style={{flex: 0.2}}>
+                  <View
+                    style={{
+                      backgroundColor: '#122499',
+                      borderRadius: 10,
+                      paddingVertical: 7,
+                      paddingHorizontal: 10,
+                      width: '100%',
+                      alignItems: 'center',
+                    }}>
+                    <Text
+                      style={{
+                        color: Theme.color.white,
+                        ...GlobalStyle.textSm,
+                      }}>
+                      Copy
+                    </Text>
+                  </View>
+                </View>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  gap: 10,
+                  marginTop: Theme.spacing.m,
+                }}>
+                <View style={{flex: 0.3}}>
+                  <View style={{flexDirection: 'column'}}>
+                    <View>
+                      <Text
+                        style={{
+                          color: '#198052',
+                          ...GlobalStyle.textMdBold,
+                        }}>
+                        +552%
+                      </Text>
+                    </View>
+                    <View style={{marginTop: 5}}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textSmaller,
+                        }}>
+                        30D ROI
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+                <View style={{flex: 0.2}}>
+                  <FontAwesome5 name="chart-line" size={40} color={'#198052'} />
+                </View>
+                <View style={{flex: 0.3}}>
+                  <View style={{flexDirection: 'column', alignItems: 'center'}}>
+                    <View>
+                      <Text style={styles.optionTextBold}>76</Text>
+                    </View>
+                    <View style={{marginTop: 5}}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textSmaller,
+                        }}>
+                        Copier
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+
+                <View style={{flex: 0.2}}>
+                  <View style={{flexDirection: 'column'}}>
+                    <View
+                      style={{
+                        borderRadius: 3,
+                        backgroundColor: '#5e1a1f',
+                        width: 20,
+                        alignItems: 'center',
+                      }}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textMdBold,
+                        }}>
+                        9
+                      </Text>
+                    </View>
+                    <View style={{marginTop: 5}}>
+                      <Text
+                        style={{
+                          color: Theme.color.white,
+                          ...GlobalStyle.textSmaller,
+                        }}>
+                        Risk
+                      </Text>
+                    </View>
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
         </View>
       </ScrollView>
     </SafeView>
