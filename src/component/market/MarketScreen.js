@@ -14,6 +14,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome5Brands from 'react-native-vector-icons/FontAwesome5Pro';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {LineChart} from 'react-native-gifted-charts';
 
 import {Header, SafeView, featureNotReady} from '../common';
 import {Theme} from '../../_data/Styles';
@@ -127,7 +128,30 @@ const MarketScreen = ({navigation}) => {
                   </View>
                 </View>
                 <View style={{flex: 0.2}}>
-                  <FontAwesome5 name="chart-line" size={40} color={'#198052'} />
+                  <View style={{}}>
+                    <LineChart
+                      initialSpacing={0}
+                      data={[
+                        {value: 0},
+                        {value: 10},
+                        {value: 50},
+                        {value: 20},
+                        {value: 60},
+                      ]}
+                      height={40}
+                      spacing={10}
+                      hideDataPoints
+                      thickness={3}
+                      hideRules
+                      hideYAxisText
+                      yAxisColor="transparent"
+                      showVerticalLines
+                      verticalLinesColor="transparent"
+                      xAxisColor="transparent"
+                      color="#198052"
+                      curved
+                    />
+                  </View>
                 </View>
                 <View style={{flex: 0.3}}>
                   <View style={{flexDirection: 'column', alignItems: 'center'}}>
@@ -249,7 +273,30 @@ const MarketScreen = ({navigation}) => {
                   </View>
                 </View>
                 <View style={{flex: 0.2}}>
-                  <FontAwesome5 name="chart-line" size={40} color={'#198052'} />
+                  <View style={{}}>
+                    <LineChart
+                      initialSpacing={0}
+                      data={[
+                        {value: 0},
+                        {value: 40},
+                        {value: 18},
+                        {value: 36},
+                        {value: 80},
+                      ]}
+                      height={40}
+                      spacing={10}
+                      hideDataPoints
+                      thickness={3}
+                      hideRules
+                      hideYAxisText
+                      yAxisColor="transparent"
+                      showVerticalLines
+                      verticalLinesColor="transparent"
+                      xAxisColor="transparent"
+                      color="#198052"
+                      curved
+                    />
+                  </View>
                 </View>
                 <View style={{flex: 0.3}}>
                   <View style={{flexDirection: 'column', alignItems: 'center'}}>
@@ -374,7 +421,41 @@ const MarketScreen = ({navigation}) => {
                   </View>
                 </View>
                 <View style={{flex: 0.2}}>
-                  <FontAwesome5 name="chart-line" size={40} color={'#198052'} />
+                  {/* <FontAwesome5 name="chart-line" size={40} color={'#198052'} /> */}
+                  <View style={{}}>
+                    <LineChart
+                      initialSpacing={0}
+                      data={[
+                        {value: 0},
+                        {value: 20},
+                        {value: 18},
+                        {value: 36},
+                        {value: 60},
+                        {value: 0},
+                        {value: 20},
+                        {value: 18},
+                        {value: 36},
+                        {value: 60},
+                        {value: 0},
+                        {value: 20},
+                        {value: 18},
+                        {value: 36},
+                        {value: 60},
+                      ]}
+                      height={40}
+                      spacing={5}
+                      hideDataPoints
+                      thickness={3}
+                      hideRules
+                      hideYAxisText
+                      yAxisColor="transparent"
+                      showVerticalLines
+                      verticalLinesColor="transparent"
+                      xAxisColor="transparent"
+                      color="#198052"
+                      curved
+                    />
+                  </View>
                 </View>
                 <View style={{flex: 0.3}}>
                   <View style={{flexDirection: 'column', alignItems: 'center'}}>
