@@ -62,7 +62,7 @@ const RobotScreen = ({navigation}) => {
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#0b1022'} />
+      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
       <View style={{backgroundColor: '#0b1022'}}>
         <BottomSheetModalProvider>
           <ScrollView

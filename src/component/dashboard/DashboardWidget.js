@@ -1,50 +1,9 @@
-import {
-  ActivityIndicator,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-} from 'react-native';
-import Feather from 'react-native-vector-icons/Feather';
+import {StyleSheet, Text, View, useWindowDimensions} from 'react-native';
 import PieChart from 'react-native-pie-chart';
 
 import {GlobalStyle, Theme} from '../../_data/Styles';
-import {localizeNumber} from '../../_helpers/utils';
 
-const {spacing, color} = Theme;
-export const Profit = ({title, localizePrice, isLoading = false}) => (
-  <View style={styles.container}>
-    <Text style={styles.title}>{title}</Text>
-    <View style={styles.profitContent}>
-      {isLoading ? (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size="small" color={Theme.color.primaryColor} />
-        </View>
-      ) : (
-        <>
-          <Feather
-            name={localizePrice > 0 ? 'trending-up' : 'trending-down'}
-            size={23}
-            style={{
-              paddingRight: 10,
-            }}
-            color={localizePrice > 0 ? Theme.color.green : Theme.color.red}
-          />
-          <Text
-            style={[
-              GlobalStyle.h3,
-              {
-                color: localizePrice > 0 ? Theme.color.green : Theme.color.red,
-              },
-            ]}>
-            USDT {localizeNumber(localizePrice)}
-          </Text>
-        </>
-      )}
-    </View>
-  </View>
-);
-
+const {spacing, color, fontRobotoBold} = Theme;
 export const TotalBalance = ({unit, localizePrice}) => {
   // const sliceColor = ['#384EAA', '#5b38aa', '#3887aa', '#38aa5b'];
   const sliceColor = ['#e4bc15', '#15e455', '#153de4', '#e415a5'];
@@ -60,7 +19,7 @@ export const TotalBalance = ({unit, localizePrice}) => {
         <Text style={[GlobalStyle.h3, {color: Theme.color.white}]}>$1,503</Text>
       </View>
 
-      <View style={{gap: spacing.s / 2}}>
+      <View styl={{gap: spacing.s / 2}}>
         <Text style={[GlobalStyle.textSm, {color: Theme.color.grey}]}>
           Today PNL
         </Text>
@@ -128,10 +87,8 @@ export const TopLeader = ({}) => {
   ];
   return (
     <View>
-      <View>
-        <Text style={[styles.title, {color: Theme.color.white}]}>
-          Tops Pair
-        </Text>
+      <View style={{marginBottom: spacing.s}}>
+        <Text style={[styles.fontWhite, GlobalStyle.h3]}>Tops Pair</Text>
       </View>
       {data?.map((d, index) => (
         <TopLeaderRow data={d} key={index} />
@@ -156,47 +113,38 @@ const TopLeaderRow = ({data}) => {
         />
       </View>
       <View style={{justifyContent: 'center', flex: 2}}>
-        <Text style={styles.topLeaderTitle}>Deals / Bot</Text>
-        <Text style={styles.topLeaderContent}>
+        <Text style={[GlobalStyle.textSm, styles.fontGrey]}>Deals / Bot</Text>
+        <Text style={[styles.fontWhite, GlobalStyle.textMd, fontRobotoBold]}>
           {data.deals} / {data.bot}
         </Text>
       </View>
       <View style={{justifyContent: 'center', flex: 2}}>
-        <Text style={styles.topLeaderTitle}>Pair</Text>
-        <Text style={styles.topLeaderContent}>{data.name}</Text>
+        <Text style={[GlobalStyle.textSm, styles.fontGrey]}>Pair</Text>
+        <Text style={[styles.fontWhite, GlobalStyle.textMd, fontRobotoBold]}>
+          {data.name}
+        </Text>
       </View>
       <View style={{justifyContent: 'center', flex: 2}}>
-        <Text style={styles.topLeaderTitle}>Exchanger</Text>
-        <Text style={styles.topLeaderContent}>{data.exchanger}</Text>
+        <Text style={[GlobalStyle.textSm, styles.fontGrey]}>Exchanger</Text>
+        <Text style={[styles.fontWhite, GlobalStyle.textMd, fontRobotoBold]}>
+          {data.exchanger}
+        </Text>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  loadingContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%',
-    paddingVertical: 10,
+  fontWhite: {
+    color: color.white,
+  },
+  fontGrey: {
+    color: color.grey,
   },
   container: {
-    // backgroundColor: Theme.color.secondColor,
-    backgroundColor: '#1c2755',
-    borderRadius: 10,
-    padding: Theme.spacing.l,
-  },
-  title: {
-    color: Theme.color.white,
-    textTransform: 'capitalize',
-    marginBottom: Theme.spacing.s,
-    ...GlobalStyle.h3,
-  },
-  profitContent: {
-    minHeight: 40,
-    marginTop: 8,
-    alignItems: 'center',
-    flexDirection: 'row',
+    backgroundColor: color.mainContainer,
+    borderRadius: spacing.s,
+    padding: spacing.l,
   },
   bulletPointRow: {
     flexDirection: 'row',
@@ -207,14 +155,5 @@ const styles = StyleSheet.create({
     height: 15,
     width: 15,
     borderRadius: 15,
-  },
-  topLeaderTitle: {
-    ...GlobalStyle.textSm,
-    color: Theme.color.grey,
-  },
-  topLeaderContent: {
-    ...GlobalStyle.textMd,
-    fontWeight: 'bold',
-    color: Theme.color.white,
   },
 });

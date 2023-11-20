@@ -21,7 +21,7 @@ import {AuthContext} from '../../_context/AuthContext';
 
 const {color, spacing} = Theme;
 const leftIcon = {
-  size: 20,
+  size: 24,
   color: color.greyLight,
 };
 const ProfileScreen = ({navigation}) => {

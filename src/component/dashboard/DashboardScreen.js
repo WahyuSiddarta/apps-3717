@@ -5,16 +5,17 @@ import {
   Text,
   View,
   RefreshControl,
+  TouchableOpacity,
 } from 'react-native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {SafeView, featureNotReady} from '../common';
 import {Theme} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
-import {Profit, TopLeader, TotalBalance} from './DashboardWidget';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {TopLeader, TotalBalance} from './DashboardWidget';
 
+const {color, spacing} = Theme;
 const DashboardScreen = ({navigation}) => {
   const [refreshing, setRefreshing] = React.useState(false);
 
@@ -34,10 +35,10 @@ const DashboardScreen = ({navigation}) => {
         }>
         <View style={styles.rowBetween}>
           <View>
-            <Text style={[GlobalStyle.h3, {color: Theme.color.white}]}>
+            <Text style={[GlobalStyle.h3, {color: color.white}]}>
               Hi, jhon Doe
             </Text>
-            <Text style={[GlobalStyle.textMd, {color: Theme.color.grey}]}>
+            <Text style={[GlobalStyle.textMd, {color: color.grey}]}>
               Welcome back to crypto Apps
             </Text>
           </View>
@@ -45,14 +46,16 @@ const DashboardScreen = ({navigation}) => {
             <MaterialIcons
               name="circle-notifications"
               size={35}
-              color={Theme.color.white}
-              style={{marginTop: Theme.spacing.s}}
+              color={color.white}
+              style={{marginTop: spacing.s}}
             />
           </TouchableOpacity>
         </View>
-        <View>
-          <Text style={styles.subtitle}>Account Information</Text>
-          <View style={{flexDirection: 'row', marginBottom: 15}}>
+        <View style={{marginTop: spacing.l, gap: spacing.s}}>
+          <Text style={[GlobalStyle.h3, styles.fontWhite]}>
+            Account Information
+          </Text>
+          <View style={{flexDirection: 'row', marginBottom: spacing.l}}>
             <View style={styles.box}>
               <TotalBalance unit={'BTC'} localizePrice={100} />
             </View>
@@ -70,14 +73,11 @@ const DashboardScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   box: {flex: 1},
   container: {
-    paddingTop: 15,
+    paddingTop: spacing.l,
     minHeight: '100%',
   },
-  subtitle: {
-    ...GlobalStyle.h3,
-    color: Theme.color.white,
-    marginTop: 20,
-    marginBottom: 8,
+  fontWhite: {
+    color: color.white,
   },
   rowBetween: {
     width: '100%',

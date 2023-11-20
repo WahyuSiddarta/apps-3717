@@ -41,7 +41,7 @@ export const Theme = {
     black: palette.black,
 
     // grey: palette.grey,
-    grey: '#a7aac3',
+
     greyDark: palette.grey_s_5,
 
     navigation: palette.azure_d_3,
@@ -65,6 +65,8 @@ export const Theme = {
     // new fixed
     white: palette.white,
     mainBackground: palette.azure_s_8,
+    mainContainer: '#1c2755',
+    grey: '#a7aac3',
   },
 };
 

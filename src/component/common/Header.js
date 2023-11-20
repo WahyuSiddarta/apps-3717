@@ -13,7 +13,7 @@ export const Header = ({navigation, headerText}) => {
             style={{position: 'absolute', left: 15}}
             onPress={() => navigation.goBack()}>
             <View style={style.iconContainer}>
-              <FontAwesome5 name="angle-left" size={20} color={'white'} />
+              <FontAwesome5 name="angle-left" size={16} color={'white'} />
             </View>
           </TouchableOpacity>
         )}
@@ -27,7 +27,7 @@ export const Header = ({navigation, headerText}) => {
 
 const style = StyleSheet.create({
   container: {
-    padding: 25,
+    padding: Theme.spacing.m,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
@@ -40,8 +40,8 @@ const style = StyleSheet.create({
     // backgroundColor: Theme.color.greyDark,
     backgroundColor: '#384eaa',
     borderRadius: 20,
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
     justifyContent: 'center',
     alignItems: 'center',
   },
