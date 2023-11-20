@@ -31,7 +31,7 @@ const ProfileScreen = ({navigation}) => {
   return (
     <SafeView>
       <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
-      <Header navigation={navigation} headerText="Profile" />
+      <Header navigation={navigation} headerText="PROFILE" />
       <ScrollView style={[GlobalStyle.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>
           <Text style={styles.title}>Free Tier</Text>

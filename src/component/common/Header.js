@@ -17,7 +17,12 @@ export const Header = ({navigation, headerText}) => {
             </View>
           </TouchableOpacity>
         )}
-        <Text style={{color: Theme.color.white, ...GlobalStyle.h2}}>
+        <Text
+          style={{
+            color: Theme.color.white,
+            ...GlobalStyle.h2,
+            textTransform: 'capitalize',
+          }}>
           {headerText}
         </Text>
       </View>
