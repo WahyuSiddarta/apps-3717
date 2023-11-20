@@ -33,7 +33,7 @@ const MarketScreen = ({navigation}) => {
     <SafeView>
       <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
       <Header navigation={navigation} headerText="Market" />
-      <ScrollView style={[styles.container, {height: height - 145}]}>
+      <ScrollView style={[GlobalStyle.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>
           <Text
             style={{
@@ -511,34 +511,6 @@ const MarketScreen = ({navigation}) => {
   );
 };
 
-const OptionSelected = ({label, content, iconComponent, handlePress}) => (
-  <TouchableOpacity style={styles.optionBox} onPress={handlePress}>
-    <View style={styles.iconContainer}>
-      <View style={{width: 40}}>{iconComponent}</View>
-      <Text style={styles.optionText}>{label}</Text>
-    </View>
-    <View style={_settingColumn}>
-      <Text style={_settingText}>{content}</Text>
-      <Feather name="chevron-right" size={20} color={Theme.color.greyLight} />
-    </View>
-  </TouchableOpacity>
-);
-
-const LineView = ({text}) => (
-  <View style={styles.lineview}>
-    <Text style={styles.lineviewText}>{text}</Text>
-  </View>
-);
-
-const _settingText = {
-  ...GlobalStyle.textSm,
-  color: Theme.color.greyLight,
-};
-const _settingColumn = {
-  flexDirection: 'row',
-  alignItems: 'center',
-};
-
 const styles = StyleSheet.create({
   optionText: {color: Theme.color.white, ...GlobalStyle.textMd},
   optionTextBold: {color: Theme.color.white, ...GlobalStyle.textMdBold},
@@ -554,11 +526,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {flex: 1},
-  container: {
-    paddingHorizontal: 25,
-    // backgroundColor: Theme.color.mainBackgroundDarker,
-    backgroundColor: '#0b1022',
-  },
   title: {
     ...GlobalStyle.h1,
     textAlign: 'left',

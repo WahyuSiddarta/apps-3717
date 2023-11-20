@@ -63,8 +63,8 @@ const configTab = ({
           );
         case 'Market':
           return (
-            <Feather
-              name={'home'}
+            <MaterialCommunityIcons
+              name={'finance'}
               size={23}
               color={focused ? Theme.color.white : Theme.color.grey}
             />

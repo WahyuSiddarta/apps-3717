@@ -51,10 +51,10 @@ export const PasswordInput = ({label, placeholder, value, onChange}) => {
 const styles = StyleSheet.create({
   formContainer: {marginTop: Theme.spacing.m},
   formLabel: {
-    ...GlobalStyle.textMd,
+    ...GlobalStyle.textSm,
     color: Theme.color.white,
-    paddingBottom: 8,
-    paddingLeft: 5,
+    paddingBottom: Theme.spacing.s,
+    // paddingLeft: 5,
   },
   formInput: {
     borderWidth: 1,

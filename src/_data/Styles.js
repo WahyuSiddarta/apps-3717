@@ -38,7 +38,6 @@ export const Theme = {
     xl: 28,
   },
   color: {
-    white: palette.white,
     black: palette.black,
 
     // grey: palette.grey,
@@ -46,7 +45,7 @@ export const Theme = {
     greyDark: palette.grey_s_5,
 
     navigation: palette.azure_d_3,
-    mainBackground: palette.azure_s_8,
+
     mainBackgroundDarker: palette.azure_s_9,
     mainBackgroundLigher: palette.azure_s_7,
 
@@ -57,13 +56,15 @@ export const Theme = {
     red: '#ff6359',
     green: '#0acca2',
 
-    currentWhite: '#fefeff',
-
     greyLight: '#F3F3F3',
 
     greenDarken: '#368676',
 
     yellow: palette.goldTips,
+
+    // new fixed
+    white: palette.white,
+    mainBackground: palette.azure_s_8,
   },
 };
 
@@ -99,6 +100,9 @@ export const GlobalStyle = StyleSheet.create({
   h1: {
     fontFamily: Theme.fontRoboto,
     fontSize: 25,
+  },
+  bold: {
+    fontFamily: Theme.fontRobotoBold,
   },
   container: {
     paddingHorizontal: 25,

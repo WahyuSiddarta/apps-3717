@@ -19,9 +19,10 @@ import {Theme} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 import {AuthContext} from '../../_context/AuthContext';
 
+const {color, spacing} = Theme;
 const leftIcon = {
   size: 20,
-  color: Theme.color.greyLight,
+  color: color.greyLight,
 };
 const ProfileScreen = ({navigation}) => {
   const {height} = useWindowDimensions();
@@ -31,14 +32,14 @@ const ProfileScreen = ({navigation}) => {
     <SafeView>
       <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
       <Header navigation={navigation} headerText="Profile" />
-      <ScrollView style={[styles.container, {height: height - 145}]}>
+      <ScrollView style={[GlobalStyle.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>
           <Text style={styles.title}>Free Tier</Text>
           <View style={{flexDirection: 'row', gap: 10}}>
             <View
               style={{
                 flex: 1,
-                backgroundColor: Theme.color.secondColor,
+                backgroundColor: color.secondColor,
                 borderRadius: 10,
                 paddingHorizontal: 15,
                 paddingVertical: 8,
@@ -51,7 +52,7 @@ const ProfileScreen = ({navigation}) => {
                 name="robot"
                 size={35}
                 style={{flex: 1}}
-                color={Theme.color.greyLight}
+                color={color.greyLight}
               />
               <Text style={[styles.optionTextBold, {flex: 1, paddingTop: 6}]}>
                 0 / 1
@@ -60,7 +61,7 @@ const ProfileScreen = ({navigation}) => {
             <View
               style={{
                 flex: 2,
-                backgroundColor: Theme.color.secondColor,
+                backgroundColor: color.secondColor,
                 borderRadius: 10,
                 paddingVertical: 10,
                 paddingHorizontal: 15,
@@ -73,8 +74,8 @@ const ProfileScreen = ({navigation}) => {
             Ending On: 22 Januari 2023
           </Text>
         </View>
-        <View style={{paddingBottom: 30, gap: Theme.spacing.m}}>
-          <View style={{gap: Theme.spacing.s}}>
+        <View style={{paddingBottom: 30, gap: spacing.m}}>
+          <View style={{gap: spacing.s}}>
             <LineView text="User" />
             <OptionSelected
               iconComponent={
@@ -84,7 +85,7 @@ const ProfileScreen = ({navigation}) => {
               handlePress={featureNotReady}
             />
           </View>
-          <View style={{gap: Theme.spacing.s}}>
+          <View style={{gap: spacing.s}}>
             <LineView text="Notifikasi" />
             <OptionSelected
               label="Telegram Channel"
@@ -101,7 +102,7 @@ const ProfileScreen = ({navigation}) => {
               }
             />
           </View>
-          <View style={{gap: Theme.spacing.s}}>
+          <View style={{gap: spacing.s}}>
             <LineView text="Other" />
             <OptionSelected
               label="Privacy Policy"
@@ -132,9 +133,9 @@ const OptionSelected = ({label, content, iconComponent, handlePress}) => (
       <View style={{width: 40}}>{iconComponent}</View>
       <Text style={styles.optionText}>{label}</Text>
     </View>
-    <View style={_settingColumn}>
-      <Text style={_settingText}>{content}</Text>
-      <Feather name="chevron-right" size={20} color={Theme.color.greyLight} />
+    <View style={styles.settingColumn}>
+      <Text style={styles.settingText}>{content}</Text>
+      <Feather name="chevron-right" size={20} color={color.greyLight} />
     </View>
   </TouchableOpacity>
 );
@@ -144,22 +145,17 @@ const LineView = ({text}) => (
     <Text style={styles.lineviewText}>{text}</Text>
   </View>
 );
-
-const _settingText = {
-  ...GlobalStyle.textSm,
-  color: Theme.color.greyLight,
-};
-const _settingColumn = {
-  flexDirection: 'row',
-  alignItems: 'center',
-};
-
 const styles = StyleSheet.create({
-  optionText: {color: Theme.color.white, ...GlobalStyle.textMd},
-  optionTextBold: {color: Theme.color.white, ...GlobalStyle.textMdBold},
-  balanceText: {color: Theme.color.white, ...GlobalStyle.h3},
+  settingText: {...GlobalStyle.textSm, color: color.greyLight},
+  settingColumn: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  optionText: {color: color.white, ...GlobalStyle.textMd},
+  optionTextBold: {color: color.white, ...GlobalStyle.textMdBold},
+  balanceText: {color: color.white, ...GlobalStyle.h3},
   endingOnText: {
-    color: Theme.color.white,
+    color: color.white,
     ...GlobalStyle.textSmaller,
     textAlign: 'right',
   },
@@ -169,25 +165,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {flex: 1},
-  container: {
-    paddingHorizontal: 25,
-    // backgroundColor: Theme.color.mainBackgroundDarker,
-    backgroundColor: '#0b1022',
-  },
+
   title: {
     ...GlobalStyle.h1,
     textAlign: 'left',
-    color: Theme.color.white,
-    marginVertical: Theme.spacing.s,
+    color: color.white,
+    marginVertical: spacing.s,
   },
   lineview: {
     marginTop: 20,
     borderBottomWidth: 0.5,
-    borderColor: Theme.color.grey,
+    borderColor: color.grey,
   },
   lineviewText: {
-    color: Theme.color.grey,
-    paddingBottom: Theme.spacing.s,
+    color: color.grey,
+    paddingBottom: spacing.s,
     ...GlobalStyle.textSm,
   },
   optionBox: {

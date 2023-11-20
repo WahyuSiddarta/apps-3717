@@ -115,14 +115,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: Theme.fontRobotoBold,
     fontSize: 25,
-    color: Theme.color.currentWhite,
+    color: Theme.color.white,
     marginBottom: 6,
   },
   subtitle: {
     textAlign: 'center',
     fontFamily: Theme.fontRoboto,
     fontSize: 18,
-    color: Theme.color.currentWhite,
+    color: Theme.color.white,
     marginBottom: 6,
   },
 });
