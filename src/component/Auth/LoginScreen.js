@@ -24,7 +24,7 @@ import {AuthContext} from '../../_context/AuthContext';
 import {isEmpty, validateEmail} from '../../_helpers/utils';
 import {useIsFold} from '../../_hooks';
 
-const {color, spacing, fontRoboto} = Theme;
+const {color, spacing} = Theme;
 const LoginScreen = ({navigation}) => {
   const {user, signIn} = useContext(AuthContext);
   if (!isEmpty(user)) {
@@ -96,7 +96,9 @@ const LoginScreen = ({navigation}) => {
               <TouchableOpacity
                 onPress={featureNotReady}
                 style={{marginTop: spacing.s}}>
-                <Text style={styles.forgetPassword}>Forget Password ?</Text>
+                <Text style={[styles.forgetPassword, GlobalStyle.textMd]}>
+                  Forget Password ?
+                </Text>
               </TouchableOpacity>
               <View style={{marginTop: spacing.xl}}>
                 <MyPrimaryButton
@@ -140,9 +142,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     marginTop: spacing.s,
     marginBottom: spacing.xl,
-    ...GlobalStyle.textMd,
   },
-
   welcomeContainer: {
     marginTop: 100,
     justifyContent: 'flex-start',

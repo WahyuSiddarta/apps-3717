@@ -19,6 +19,7 @@ import {AuthContext} from '../../_context/AuthContext';
 import {isEmpty} from '../../_helpers/utils';
 import {useIsFold} from '../../_hooks';
 
+const {spacing, color} = Theme;
 const RegisterScreen = ({navigation}) => {
   const {user} = useContext(AuthContext);
   if (!isEmpty(user)) {
@@ -31,50 +32,61 @@ const RegisterScreen = ({navigation}) => {
 
   return (
     <SafeView style={{flex: 1}}>
-      <ScrollView style={styles.container}>
+      <ScrollView style={[GlobalStyle.container, {paddingHorizontal: 0}]}>
         <StatusBar
           barStyle={'dark-content'}
-          backgroundColor={Theme.color.primaryColor}
+          backgroundColor={color.primaryColor}
         />
-        <View style={{backgroundColor: Theme.color.primaryColor, height: 30}}>
+        <View style={{backgroundColor: color.primaryColor, height: 30}}>
           <Svg height={isFold ? 200 : 150} width={width} viewBox="0 0 1440 320">
             <Path
-              fill={Theme.color.primaryColor}
+              fill={color.primaryColor}
               d="M0,288L48,261.3C96,235,192,181,288,160C384,139,480,149,576,160C672,171,768,181,864,154.7C960,128,1056,64,1152,53.3C1248,43,1344,85,1392,106.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
             />
           </Svg>
         </View>
         <View style={[styles.welcomeContainer, {height: height - 110}]}>
-          <Text style={styles.title}>Create Account!</Text>
-          <Text style={styles.subtitle}>Fill information to continue</Text>
-          <ScrollView
-            style={{marginHorizontal: 25, marginTop: Theme.spacing.xl}}>
+          <View style={{gap: spacing.s}}>
+            <Text style={[GlobalStyle.h1, GlobalStyle.bold, styles.headerText]}>
+              Create Account!
+            </Text>
+            <Text style={[GlobalStyle.h3, styles.headerText]}>
+              Fill information to continue
+            </Text>
+          </View>
+          <ScrollView style={{marginHorizontal: 25, marginTop: spacing.xl}}>
             <KeyboardAvoidingView
               behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
               keyboardVerticalOffset={70}>
-              <RegularInput
-                label="Email"
-                placeholder={'example@mail.com'}
-                value={email}
-                onChange={value => setEmail(value)}
-              />
-              <PasswordInput
-                label="Password"
-                placeholder={'Password'}
-                value={password}
-                onChange={value => setPassword(value)}
-              />
-              <PasswordInput
-                label="Repeat Password"
-                placeholder={'Repeat Password'}
-                value={password}
-                onChange={value => setPassword(value)}
-              />
-
-              <View style={{marginTop: Theme.spacing.xl}}>
+              <View style={{gap: spacing.md}}>
+                <RegularInput
+                  label="Email"
+                  placeholder={'example@mail.com'}
+                  value={email}
+                  onChange={value => setEmail(value)}
+                />
+                <PasswordInput
+                  label="Password"
+                  placeholder={'Password'}
+                  value={password}
+                  onChange={value => setPassword(value)}
+                />
+                <PasswordInput
+                  label="Repeat Password"
+                  placeholder={'Repeat Password'}
+                  value={password}
+                  onChange={value => setPassword(value)}
+                />
+              </View>
+              <View style={{marginTop: 2 * spacing.xl}}>
                 <MyPrimaryButton text={'Submit'} />
               </View>
-              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+              <View
+                style={{
+                  marginTop: spacing.s,
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                }}>
                 <Text style={[styles.otherAction, GlobalStyle.textMd]}>
                   Already Have Account ?
                 </Text>
@@ -95,35 +107,21 @@ const RegisterScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   otherAction2: {
-    color: Theme.color.grey,
-    paddingTop: Theme.spacing.m,
+    color: color.grey,
+    paddingTop: spacing.m,
   },
   otherAction: {
-    color: Theme.color.white,
+    color: color.white,
     textAlign: 'center',
-    paddingTop: Theme.spacing.m,
-  },
-  container: {
-    height: '100%',
-    backgroundColor: Theme.color.mainBackground,
+    paddingTop: spacing.m,
   },
   welcomeContainer: {
     marginTop: 80,
     justifyContent: 'flex-end',
   },
-  title: {
+  headerText: {
     textAlign: 'center',
-    fontFamily: Theme.fontRobotoBold,
-    fontSize: 25,
-    color: Theme.color.white,
-    marginBottom: 6,
-  },
-  subtitle: {
-    textAlign: 'center',
-    fontFamily: Theme.fontRoboto,
-    fontSize: 18,
-    color: Theme.color.white,
-    marginBottom: 6,
+    color: color.white,
   },
 });
 
