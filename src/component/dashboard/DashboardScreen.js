@@ -27,7 +27,10 @@ const DashboardScreen = ({navigation}) => {
   }, []);
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#0b1022'} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={color.mainBackground}
+      />
       <ScrollView
         style={[GlobalStyle.container, styles.container]}
         refreshControl={

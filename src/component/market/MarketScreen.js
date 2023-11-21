@@ -41,7 +41,8 @@ const MarketScreen = ({navigation}) => {
         <View style={{width: '100%'}}>
           <Text
             style={{
-              ...GlobalStyle.textMdBold,
+              ...GlobalStyle.textMd,
+              ...GlobalStyle.bold,
               textAlign: 'left',
               color: Theme.color.white,
               marginTop: Theme.spacing.s,
@@ -71,7 +72,8 @@ const MarketScreen = ({navigation}) => {
                   <Text
                     style={{
                       color: Theme.color.white,
-                      ...GlobalStyle.textMdBold,
+                      ...GlobalStyle.textMd,
+                      ...GlobalStyle.bold,
                     }}>
                     XRP-USDT
                   </Text>
@@ -115,7 +117,8 @@ const MarketScreen = ({navigation}) => {
                       <Text
                         style={{
                           color: '#198052',
-                          ...GlobalStyle.textMdBold,
+                          ...GlobalStyle.textMd,
+                          ...GlobalStyle.bold,
                         }}>
                         +622.18%
                       </Text>
@@ -216,7 +219,8 @@ const MarketScreen = ({navigation}) => {
                   <Text
                     style={{
                       color: Theme.color.white,
-                      ...GlobalStyle.textMdBold,
+                      ...GlobalStyle.textMd,
+                      ...GlobalStyle.bold,
                     }}>
                     FTM-USDT
                   </Text>
@@ -260,7 +264,8 @@ const MarketScreen = ({navigation}) => {
                       <Text
                         style={{
                           color: '#198052',
-                          ...GlobalStyle.textMdBold,
+                          ...GlobalStyle.textMd,
+                          ...GlobalStyle.bold,
                         }}>
                         +292.66%
                       </Text>
@@ -364,7 +369,8 @@ const MarketScreen = ({navigation}) => {
                   <Text
                     style={{
                       color: Theme.color.white,
-                      ...GlobalStyle.textMdBold,
+                      ...GlobalStyle.textMd,
+                      ...GlobalStyle.bold,
                     }}>
                     ORDI-USDT
                   </Text>
@@ -408,7 +414,8 @@ const MarketScreen = ({navigation}) => {
                       <Text
                         style={{
                           color: '#198052',
-                          ...GlobalStyle.textMdBold,
+                          ...GlobalStyle.textMd,
+                          ...GlobalStyle.bold,
                         }}>
                         +552%
                       </Text>
@@ -490,7 +497,8 @@ const MarketScreen = ({navigation}) => {
                       <Text
                         style={{
                           color: Theme.color.white,
-                          ...GlobalStyle.textMdBold,
+                          ...GlobalStyle.textMd,
+                          ...GlobalStyle.bold,
                         }}>
                         9
                       </Text>
@@ -517,7 +525,11 @@ const MarketScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   optionText: {color: Theme.color.white, ...GlobalStyle.textMd},
-  optionTextBold: {color: Theme.color.white, ...GlobalStyle.textMdBold},
+  optionTextBold: {
+    color: Theme.color.white,
+    ...GlobalStyle.textMd,
+    ...GlobalStyle.bold,
+  },
   balanceText: {color: Theme.color.white, ...GlobalStyle.h3},
   endingOnText: {
     color: Theme.color.white,

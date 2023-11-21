@@ -37,45 +37,49 @@ const ProfileScreen = ({navigation}) => {
       <Header navigation={navigation} headerText="Profile" />
       <ScrollView style={[GlobalStyle.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>
-          <Text style={styles.title}>Free Tier</Text>
-          <View style={{flexDirection: 'row', gap: 10}}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: color.secondColor,
-                borderRadius: 10,
-                paddingHorizontal: 15,
-                paddingVertical: 8,
-                flexDirection: 'column',
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '100%',
-              }}>
-              <MaterialCommunityIcons
-                name="robot"
-                size={35}
-                style={{flex: 1}}
-                color={color.greyLight}
-              />
-              <Text style={[styles.optionTextBold, {flex: 1, paddingTop: 6}]}>
-                0 / 1
-              </Text>
+          <View style={{marginTop: spacing.m, gap: spacing.s}}>
+            <Text style={[styles.fontWhite, GlobalStyle.h2, GlobalStyle.bold]}>
+              Free Tier
+            </Text>
+            <View style={{flexDirection: 'row', gap: spacing.m}}>
+              <View
+                style={[
+                  styles.columnCenter,
+                  styles.box,
+                  styles.widgetContainer,
+                ]}>
+                <MaterialCommunityIcons
+                  name="robot"
+                  size={35}
+                  color={color.greyLight}
+                />
+                <Text
+                  style={[
+                    GlobalStyle.textMd,
+                    styles.fontWhite,
+                    GlobalStyle.bold,
+                  ]}>
+                  0 / 1
+                </Text>
+              </View>
+              <View style={[styles.widgetContainer, {flex: 2}]}>
+                <Text
+                  style={[
+                    GlobalStyle.textMd,
+                    styles.fontWhite,
+                    GlobalStyle.bold,
+                  ]}>
+                  Balance
+                </Text>
+                <Text style={[GlobalStyle.h3, styles.fontWhite]}>
+                  USDT 0.00
+                </Text>
+              </View>
             </View>
-            <View
-              style={{
-                flex: 2,
-                backgroundColor: color.secondColor,
-                borderRadius: 10,
-                paddingVertical: 10,
-                paddingHorizontal: 15,
-              }}>
-              <Text style={styles.optionTextBold}>Balance</Text>
-              <Text style={styles.balanceText}>USDT 0.00</Text>
-            </View>
+            <Text style={[styles.endingOnText]}>
+              Ending On: 22 Januari 2023
+            </Text>
           </View>
-          <Text style={[styles.endingOnText, {marginTop: 10}]}>
-            Ending On: 22 Januari 2023
-          </Text>
         </View>
         <View style={{paddingBottom: 30, gap: spacing.m}}>
           <View style={{gap: spacing.s}}>
@@ -134,7 +138,7 @@ const OptionSelected = ({label, content, iconComponent, handlePress}) => (
   <TouchableOpacity style={styles.optionBox} onPress={handlePress}>
     <View style={styles.iconContainer}>
       <View style={{width: 40}}>{iconComponent}</View>
-      <Text style={styles.optionText}>{label}</Text>
+      <Text style={[GlobalStyle.textMd, styles.fontWhite]}>{label}</Text>
     </View>
     <View style={styles.settingColumn}>
       <Text style={styles.settingText}>{content}</Text>
@@ -154,9 +158,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  optionText: {color: color.white, ...GlobalStyle.textMd},
-  optionTextBold: {color: color.white, ...GlobalStyle.textMdBold},
-  balanceText: {color: color.white, ...GlobalStyle.h3},
   endingOnText: {
     color: color.white,
     ...GlobalStyle.textSmaller,
@@ -168,15 +169,20 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   box: {flex: 1},
-
-  title: {
-    ...GlobalStyle.h1,
-    textAlign: 'left',
-    color: color.white,
-    marginVertical: spacing.s,
+  widgetContainer: {
+    backgroundColor: color.secondColor,
+    borderRadius: spacing.m,
+    paddingHorizontal: spacing.l,
+    paddingVertical: spacing.s,
+    gap: spacing.s,
+  },
+  columnCenter: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   lineview: {
-    marginTop: 20,
+    marginTop: spacing.l,
     borderBottomWidth: 0.5,
     borderColor: color.grey,
   },
@@ -188,8 +194,9 @@ const styles = StyleSheet.create({
   optionBox: {
     justifyContent: 'space-between',
     flexDirection: 'row',
-    paddingTop: 10,
+    paddingTop: spacing.m,
   },
+  fontWhite: {color: color.white},
 });
 
 export default ProfileScreen;

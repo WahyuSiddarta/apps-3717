@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import Lottie from 'lottie-react-native';
-import {useRef, useEffect, useState, useCallback, useMemo} from 'react';
+import {useRef, useEffect, useState, useCallback} from 'react';
 import {
   BottomSheetModal,
   BottomSheetModalProvider,
@@ -25,7 +25,7 @@ import {MyPrimaryButton} from '../common/Button';
 import {useIsFold} from '../../_hooks';
 // import CreateRobot from './CreateRobot';
 
-const {color} = Theme;
+const {color, spacing} = Theme;
 const RobotScreen = ({navigation}) => {
   const [refreshing, setRefreshing] = useState(false);
   // ref
@@ -67,7 +67,7 @@ const RobotScreen = ({navigation}) => {
         barStyle={'light-content'}
         backgroundColor={color.headerColor}
       />
-      <View style={{backgroundColor: '#0b1022'}}>
+      <View style={{backgroundColor: color.mainBackground}}>
         <BottomSheetModalProvider>
           <ScrollView
             refreshControl={
@@ -79,20 +79,25 @@ const RobotScreen = ({navigation}) => {
             enablePanDownToClose
             ref={bottomSheetModalRef}
             handleComponent={null}
-            snapPoints={[150]}
+            snapPoints={[180]}
             onChange={handleSheetChanges}
             backdropComponent={renderBackdrop}>
             <View style={styles.contentContainer}>
               <Text
-                style={{
-                  color: 'white',
-                  textAlign: 'center',
-                  marginBottom: 15,
-                  ...GlobalStyle.h3Bold,
-                }}>
+                style={[
+                  styles.fontWhite,
+                  GlobalStyle.h3,
+                  GlobalStyle.bold,
+                  {textAlign: 'center'},
+                ]}>
                 Traiding Strategy
               </Text>
-              <View style={{flexDirection: 'row', gap: 15}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  gap: spacing.m,
+                  marginBottom: spacing.m,
+                }}>
                 <TouchableOpacity
                   style={styles.robotType}
                   onPress={() =>
@@ -103,7 +108,7 @@ const RobotScreen = ({navigation}) => {
                     size={35}
                     color={Theme.color.greyLight}
                   />
-                  <Text style={{color: 'white', ...GlobalStyle.textMd}}>
+                  <Text style={[styles.fontWhite, GlobalStyle.textMd]}>
                     DCA
                   </Text>
                 </TouchableOpacity>
@@ -118,7 +123,7 @@ const RobotScreen = ({navigation}) => {
                     style={{flex: 1}}
                     color={Theme.color.greyLight}
                   />
-                  <Text style={{color: 'white', ...GlobalStyle.textMd}}>
+                  <Text style={[styles.fontWhite, GlobalStyle.textMd]}>
                     Futures
                   </Text>
                 </TouchableOpacity>
@@ -132,7 +137,7 @@ const RobotScreen = ({navigation}) => {
                     size={35}
                     color={Theme.color.greyLight}
                   />
-                  <Text style={{color: 'white', ...GlobalStyle.textMd}}>
+                  <Text style={[styles.fontWhite, GlobalStyle.textMd]}>
                     Grid
                   </Text>
                 </TouchableOpacity>
@@ -157,18 +162,26 @@ const EmptyRobot = ({onSubmit}) => {
   }, []);
 
   return (
-    <View style={[styles.botContainer, {height: height + 30}]}>
+    <View style={[styles.botContainer, {height: height + 30, marginTop: -120}]}>
       <Lottie
         ref={animationRef}
         style={{marginTop: -100}}
         source={require('../../../assets/lottie/robot-error.json')}
       />
-      <Text style={[styles.title, {marginTop: isFold ? 600 : 300}]}>
-        You don't have any bots
-      </Text>
-      <Text style={[styles.subtitle]}>Start by creating new bots</Text>
-      <View style={{marginTop: 20}}>
-        <MyPrimaryButton text={'Start Journey Now!'} handlePress={onSubmit} />
+      <View
+        style={[
+          styles.botContainer,
+          {marginTop: isFold ? 600 : 300, gap: spacing.s},
+        ]}>
+        <Text style={[styles.fontWhite, GlobalStyle.h1]}>
+          You don't have any bots
+        </Text>
+        <Text style={[styles.fontWhite, GlobalStyle.h3]}>
+          Start by creating new bots
+        </Text>
+        <View style={{marginTop: spacing.l}}>
+          <MyPrimaryButton text={'Start Journey Now!'} handlePress={onSubmit} />
+        </View>
       </View>
     </View>
   );
@@ -178,32 +191,23 @@ const styles = StyleSheet.create({
   botContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: -120,
   },
-  title: {
-    ...GlobalStyle.h1,
-    textAlign: 'center',
-    color: Theme.color.white,
-  },
-  subtitle: {
-    ...GlobalStyle.h3,
-    color: Theme.color.white,
-    marginBottom: 8,
-  },
+  fontWhite: {color: color.white},
   handleComponent: {backgroundColor: Theme.color.secondColor},
   contentContainer: {
-    borderTopRightRadius: 15,
-    borderTopLeftRadius: 15,
-    padding: 15,
-    flex: 1,
-    backgroundColor: Theme.color.secondColor,
+    borderTopRightRadius: 15, // static 15
+    borderTopLeftRadius: 15, // static 15
+    padding: spacing.l,
+    gap: spacing.l,
+    backgroundColor: color.secondColor,
+    height: 180,
   },
   robotType: {
     alignItems: 'center',
     flexDirection: 'column',
-    backgroundColor: Theme.color.primaryColor,
-    borderRadius: 10,
-    padding: 10,
+    backgroundColor: color.primaryColor,
+    borderRadius: spacing.m,
+    padding: spacing.m,
     flex: 1,
   },
 });

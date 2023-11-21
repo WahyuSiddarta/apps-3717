@@ -151,7 +151,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#0b1022',
   },
   cardExchanger: {
-    // backgroundColor: Theme.color.mainBackgroundDarker,
     backgroundColor: '#0b1022',
     paddingHorizontal: Theme.spacing.l,
     paddingVertical: Theme.spacing.s,
@@ -159,7 +158,8 @@ const styles = StyleSheet.create({
     // borderRadius: 10,
   },
   subtitleTitle: {
-    ...GlobalStyle.h3Bold,
+    ...GlobalStyle.h3,
+    ...GlobalStyle.bold,
     color: Theme.color.grey,
     marginBottom: Theme.spacing.s,
     paddingHorizontal: Theme.spacing.l,
@@ -179,14 +179,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: Theme.spacing.l,
   },
   copyText: {
-    ...GlobalStyle.textMdBold,
+    ...GlobalStyle.textMd,
+    ...GlobalStyle.bold,
     color: Theme.color.yellow,
     marginBottom: Theme.spacing.m,
     paddingHorizontal: Theme.spacing.l,
     textAlign: 'left',
   },
   tipsTitle: {
-    ...GlobalStyle.h3Bold,
+    ...GlobalStyle.h3,
+    ...GlobalStyle.bold,
     color: Theme.color.grey,
     marginBottom: Theme.spacing.s,
     paddingHorizontal: Theme.spacing.l,
