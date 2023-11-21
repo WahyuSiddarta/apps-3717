@@ -47,9 +47,7 @@ export const Theme = {
     navigation: palette.azure_d_3,
 
     mainBackgroundDarker: palette.azure_s_9,
-    mainBackgroundLigher: palette.azure_s_7,
 
-    primaryColor: palette.azure,
     azureDarkenColor: palette.azureDarken,
     secondColor: palette.mirrage,
     orange: '#ff9254',
@@ -63,8 +61,10 @@ export const Theme = {
     yellow: palette.goldTips,
 
     // new fixed
+    primaryColor: palette.azure,
     white: palette.white,
     mainBackground: palette.azure_s_8,
+    mainBackgroundLigher: palette.azure_s_7,
     mainContainer: '#1c2755',
     grey: '#a7aac3',
   },

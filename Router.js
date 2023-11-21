@@ -21,21 +21,9 @@ import RobotScreen from './src/component/robot/RobotScreen';
 import ExchangerListScreen from './src/component/robot/ExchangerListScreen';
 import MarketScreen from './src/component/market/MarketScreen';
 import RobotScreenCreate from './src/component/robot/RobotScreenCreate';
+import ExchangerPermissionScreen from './src/component/robot/ExchangerPermissionScreen';
 
 const Tab = createBottomTabNavigator();
-const _initLogin = async signIn => {
-  try {
-    let user = await _getData('user');
-    user = JSON.parse(user);
-    // eslint-disable-next-line no-extra-boolean-cast
-    if (!!user?.user_id) {
-      signIn(user?.user_id);
-    }
-  } catch (error) {
-    console.log('error ', error);
-  }
-};
-
 const configTab = ({
   title,
   isHidden = false,
@@ -121,11 +109,6 @@ const configTab = ({
 const Router = () => {
   const {isAuth, signIn} = useContext(AuthContext);
 
-  useEffect(() => {
-    _initLogin(signIn);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const routeNameRef = React.useRef();
   const Stack = createNativeStackNavigator();
 
@@ -199,8 +182,8 @@ const Router = () => {
           options={{headerShown: false, animation: 'slide_from_right'}}
         />
         <Stack.Screen
-          name="create_robot"
-          component={RobotScreenCreate}
+          name="exchanger_permission"
+          component={ExchangerPermissionScreen}
           options={{headerShown: false, animation: 'slide_from_right'}}
         />
         <Stack.Screen

@@ -44,7 +44,7 @@ const ExchangerListScreen = ({route, navigation}) => {
               label={d}
               key={d}
               handlePress={() =>
-                navigation.navigate('create_robot', {exchanger_name: d})
+                navigation.navigate('exchanger_permission', {exchanger_name: d})
               }
               last={i + 1 === data.length}
             />
