@@ -76,7 +76,10 @@ const ExchangerPermissionScreen = ({route, navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={color.headerColor}
+      />
       <Header
         navigation={navigation}
         headerText={'Connect ' + (!!exchanger_name ? exchanger_name : '')}

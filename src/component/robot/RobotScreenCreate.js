@@ -17,6 +17,7 @@ import {GlobalStyle, Theme} from '../../_data/Styles';
 import {useState} from 'react';
 import {MyPrimaryButton} from '../common/Button';
 
+const {color} = Theme;
 const RobotScreenCreate = ({route, navigation}) => {
   const {exchanger_name} = route.params || {};
   const {height} = useWindowDimensions();
@@ -75,7 +76,10 @@ const RobotScreenCreate = ({route, navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={color.headerColor}
+      />
       <Header
         navigation={navigation}
         headerText={'Connect ' + (!!exchanger_name ? exchanger_name : '')}

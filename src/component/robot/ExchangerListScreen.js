@@ -12,6 +12,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import {Header, SafeView} from '../common';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 
+const {color} = Theme;
 const ExchangerListScreen = ({route, navigation}) => {
   const {method} = route.params || {};
   const {height} = useWindowDimensions();
@@ -28,7 +29,10 @@ const ExchangerListScreen = ({route, navigation}) => {
   ];
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={color.headerColor}
+      />
       <Header navigation={navigation} headerText="Link Exchanger" />
       <ScrollView
         style={[

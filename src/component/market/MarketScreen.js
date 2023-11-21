@@ -21,6 +21,7 @@ import {Theme} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 import {AuthContext} from '../../_context/AuthContext';
 
+const {color} = Theme;
 const leftIcon = {
   size: 20,
   color: Theme.color.greyLight,
@@ -31,7 +32,10 @@ const MarketScreen = ({navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={color.headerColor}
+      />
       <Header navigation={navigation} headerText="Market" />
       <ScrollView style={[GlobalStyle.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>

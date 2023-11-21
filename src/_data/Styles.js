@@ -61,6 +61,7 @@ export const Theme = {
     yellow: palette.goldTips,
 
     // new fixed
+    headerColor: '#161f44',
     primaryColor: palette.azure,
     white: palette.white,
     mainBackground: palette.azure_s_8,

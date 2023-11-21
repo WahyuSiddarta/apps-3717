@@ -25,6 +25,7 @@ import {MyPrimaryButton} from '../common/Button';
 import {useIsFold} from '../../_hooks';
 // import CreateRobot from './CreateRobot';
 
+const {color} = Theme;
 const RobotScreen = ({navigation}) => {
   const [refreshing, setRefreshing] = useState(false);
   // ref
@@ -62,7 +63,10 @@ const RobotScreen = ({navigation}) => {
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={color.headerColor}
+      />
       <View style={{backgroundColor: '#0b1022'}}>
         <BottomSheetModalProvider>
           <ScrollView

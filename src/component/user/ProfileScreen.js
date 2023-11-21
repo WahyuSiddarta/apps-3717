@@ -30,7 +30,10 @@ const ProfileScreen = ({navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={color.headerColor}
+      />
       <Header navigation={navigation} headerText="Profile" />
       <ScrollView style={[GlobalStyle.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>
