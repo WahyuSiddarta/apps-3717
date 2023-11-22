@@ -18,14 +18,14 @@ const ExchangerListScreen = ({route, navigation}) => {
   const {height} = useWindowDimensions();
 
   const data = [
-    'BINANCE',
-    'HTBC',
-    'HUOBI',
-    'OKEXV5',
-    'BINANCE_US',
-    'COINBASE_PRO',
-    'BYBIT_SPOT',
-    'KRAKEN',
+    {title: 'BINANCE', status: 'Linked'},
+    {title: 'HTBC', status: ''},
+    {title: 'HUOBI', status: ''},
+    {title: 'OKEXV5', status: ''},
+    {title: 'BINANCE_US', status: ''},
+    {title: 'COINBASE_PRO', status: ''},
+    {title: 'BYBIT_SPOT', status: ''},
+    {title: 'KRAKEN', status: 'Linked'},
   ];
   return (
     <SafeView>
@@ -43,7 +43,8 @@ const ExchangerListScreen = ({route, navigation}) => {
         <View style={styles.cardExchanger}>
           {data.map((d, i) => (
             <OptionSelected
-              label={d}
+              label={d?.title}
+              content={d?.status}
               key={d}
               handlePress={() =>
                 navigation.navigate('exchanger_permission', {exchanger_name: d})
