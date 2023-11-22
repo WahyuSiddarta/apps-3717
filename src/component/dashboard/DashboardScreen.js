@@ -38,7 +38,7 @@ const DashboardScreen = ({navigation}) => {
         }>
         <View style={styles.rowBetween}>
           <View>
-            <Text style={[GlobalStyle.h3, {color: color.white}]}>
+            <Text style={[GlobalStyle.h3, styles.fontWhite, GlobalStyle.bold]}>
               Hi, jhon Doe
             </Text>
             <Text style={[GlobalStyle.textMd, {color: color.grey}]}>
