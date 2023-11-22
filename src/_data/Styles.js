@@ -18,8 +18,6 @@ const palette = {
   goldTips_s_2: '#a0840f',
   goldTips_s_4: '#725e0b',
   grey: '#6a6b70',
-  grey_s_5: '#353638',
-  grey_s_8: '151516',
 };
 
 export const Theme = {
@@ -38,33 +36,25 @@ export const Theme = {
     xl: 28,
   },
   color: {
-    black: palette.black,
-
-    // grey: palette.grey,
-    grey: '#a7aac3',
-    greyDark: palette.grey_s_5,
-
-    navigation: palette.azure_d_3,
-
-    mainBackgroundDarker: palette.azure_s_9,
-    mainBackgroundLigher: palette.azure_s_7,
-
-    primaryColor: palette.azure,
-    azureDarkenColor: palette.azureDarken,
     secondColor: palette.mirrage,
-    orange: '#ff9254',
     red: '#ff6359',
-    green: '#0acca2',
-
+    green: '#198052',
     greyLight: '#F3F3F3',
-
-    greenDarken: '#368676',
-
     yellow: palette.goldTips,
-
-    // new fixed
+    navigation: palette.azure_d_3,
+    headerColor: '#161f44',
+    // primaryColor: palette.azure,
+    primaryColor: '#122499',
     white: palette.white,
     mainBackground: palette.azure_s_8,
+    mainBackgroundLigher: palette.azure_s_7,
+    mainContainer: '#1c2755',
+    // grey: '#a7aac3',
+    grey: '#bebec0',
+
+    // RISK COLOR
+    riskMedium: '#b3a042',
+    riskMax: '#5e1a1f',
   },
 };
 
@@ -80,14 +70,6 @@ export const GlobalStyle = StyleSheet.create({
   textMd: {
     fontFamily: Theme.fontRoboto,
     fontSize: 14,
-  },
-  textMdBold: {
-    fontFamily: Theme.fontRobotoBold,
-    fontSize: 14,
-  },
-  h3Bold: {
-    fontFamily: Theme.fontRobotoBold,
-    fontSize: 18,
   },
   h3: {
     fontFamily: Theme.fontRoboto,

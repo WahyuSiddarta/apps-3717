@@ -1,9 +1,11 @@
 import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
-import React, {useContext} from 'react';
+import React from 'react';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Feather from 'react-native-vector-icons/Feather';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 
+const {spacing, color} = Theme;
 export const Header = ({navigation, headerText}) => {
   return (
     <View style={{flexDirection: 'column'}}>
@@ -12,12 +14,18 @@ export const Header = ({navigation, headerText}) => {
           <TouchableOpacity
             style={{position: 'absolute', left: 15}}
             onPress={() => navigation.goBack()}>
-            <View style={style.iconContainer}>
-              <FontAwesome5 name="angle-left" size={20} color={'white'} />
-            </View>
+            {/* <View style={style.iconContainer}>
+              <FontAwesome5 name="angle-left" size={16} color={'white'} />
+            </View> */}
+            <Feather name="chevron-left" size={24} color={'white'} />
           </TouchableOpacity>
         )}
-        <Text style={{color: Theme.color.white, ...GlobalStyle.h2}}>
+        <Text
+          style={{
+            color: Theme.color.white,
+            ...GlobalStyle.h2,
+            ...GlobalStyle.bold,
+          }}>
           {headerText}
         </Text>
       </View>
@@ -27,21 +35,19 @@ export const Header = ({navigation, headerText}) => {
 
 const style = StyleSheet.create({
   container: {
-    padding: 25,
+    padding: spacing.m,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: Theme.color.black,
-    backgroundColor: '#111733',
+    backgroundColor: color.mainBackgroundLigher,
   },
   iconRightContainer: {flexDirection: 'row'},
   iconContainer: {
-    // backgroundColor: Theme.color.greyDark,
-    backgroundColor: '#384eaa',
+    backgroundColor: color.primaryColor,
     borderRadius: 20,
-    width: 30,
-    height: 30,
+    width: 25,
+    height: 25,
     justifyContent: 'center',
     alignItems: 'center',
   },

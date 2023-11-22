@@ -12,6 +12,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import {Header, SafeView} from '../common';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 
+const {color, spacing} = Theme;
 const ExchangerListScreen = ({route, navigation}) => {
   const {method} = route.params || {};
   const {height} = useWindowDimensions();
@@ -28,15 +29,16 @@ const ExchangerListScreen = ({route, navigation}) => {
   ];
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
+      <StatusBar
+        barStyle={'light-content'}
+        backgroundColor={color.headerColor}
+      />
       <Header navigation={navigation} headerText="Link Exchanger" />
-      <ScrollView
-        style={[
-          styles.container,
-          {height: height, backgroundColor: '#0b1022'},
-        ]}>
-        <View style={{marginTop: 10}}>
-          <Text style={styles.subtitle}>Exchanger List</Text>
+      <ScrollView style={[GlobalStyle.container, {height: height - 85}]}>
+        <View style={styles.textContainer}>
+          <Text style={[GlobalStyle.h3, styles.fontWhite, GlobalStyle.bold]}>
+            Exchanger List
+          </Text>
         </View>
         <View style={styles.cardExchanger}>
           {data.map((d, i) => (
@@ -44,9 +46,8 @@ const ExchangerListScreen = ({route, navigation}) => {
               label={d}
               key={d}
               handlePress={() =>
-                navigation.navigate('create_robot', {exchanger_name: d})
+                navigation.navigate('exchanger_permission', {exchanger_name: d})
               }
-              last={i + 1 === data.length}
             />
           ))}
         </View>
@@ -56,30 +57,21 @@ const ExchangerListScreen = ({route, navigation}) => {
 };
 
 const OptionSelected = ({label, content, handlePress, last = false}) => (
-  <View style={{paddingTop: Theme.spacing.s, paddingBottom: Theme.spacing.s}}>
+  <View style={{paddingVertical: spacing.s}}>
     <TouchableOpacity style={styles.optionBox} onPress={handlePress}>
       <View style={styles.iconContainer}>
-        <Text style={styles.optionText}>{label}</Text>
+        <Text style={[GlobalStyle.textMd, styles.fontWhite]}>{label}</Text>
       </View>
-      <View style={_settingColumn}>
-        <Text style={_settingText}>{content}</Text>
-        <Feather name="chevron-right" size={20} color={Theme.color.greyLight} />
+      <View style={styles.row}>
+        <Text style={[GlobalStyle.textSm, styles.fontGrey]}>{content}</Text>
+        <Feather name="chevron-right" size={20} color={color.greyLight} />
       </View>
     </TouchableOpacity>
     {!last && <View style={styles.lineview} />}
   </View>
 );
 
-const _settingText = {
-  ...GlobalStyle.textSm,
-  color: Theme.color.greyLight,
-};
-const _settingColumn = {
-  flexDirection: 'row',
-  alignItems: 'center',
-};
 const styles = StyleSheet.create({
-  optionText: {color: Theme.color.white, ...GlobalStyle.textMd},
   iconContainer: {
     flexDirection: 'row',
     alignContent: 'center',
@@ -87,38 +79,29 @@ const styles = StyleSheet.create({
   },
   lineview: {
     borderBottomWidth: 1,
-    borderColor: Theme.color.white,
-    paddingBottom: Theme.spacing.s,
-    paddingTop: 4,
-  },
-
-  container: {
-    // paddingHorizontal: Theme.spacing.l,
-    backgroundColor: Theme.color.navigation,
+    borderColor: color.white,
+    paddingBottom: spacing.s / 2,
   },
   cardExchanger: {
-    // backgroundColor: Theme.color.mainBackgroundLigher,
-    backgroundColor: '#0b1022',
-    paddingHorizontal: Theme.spacing.l,
-    paddingVertical: Theme.spacing.s,
-    gap: Theme.spacing.s,
-    // borderRadius: 10,
+    backgroundColor: color.mainBackground,
+    paddingHorizontal: spacing.l,
+    paddingVertical: spacing.s,
+    gap: spacing.s,
   },
   optionBox: {
     justifyContent: 'space-between',
     flexDirection: 'row',
   },
-  subtitle: {
-    ...GlobalStyle.h3,
-    color: Theme.color.grey,
-    marginBottom: Theme.spacing.m,
-    paddingHorizontal: Theme.spacing.l,
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
-  headerTitle: {
-    ...GlobalStyle.h3,
-    color: Theme.color.primaryColor,
-    marginBottom: Theme.spacing.m,
-    paddingHorizontal: Theme.spacing.l,
+  textContainer: {marginVertical: spacing.m, paddingHorizontal: spacing.l},
+  fontGrey: {
+    color: color.grey,
+  },
+  fontWhite: {
+    color: color.white,
   },
 });
 

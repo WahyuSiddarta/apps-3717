@@ -21,23 +21,12 @@ import RobotScreen from './src/component/robot/RobotScreen';
 import ExchangerListScreen from './src/component/robot/ExchangerListScreen';
 import MarketScreen from './src/component/market/MarketScreen';
 import RobotScreenCreate from './src/component/robot/RobotScreenCreate';
+import ExchangerPermissionScreen from './src/component/robot/ExchangerPermissionScreen';
 import ForgetPasswordScreen from './src/component/Auth/ForgetPasswordScreen';
 import ChangePasswordScreen from './src/component/user/ChangePasswordScreen';
 
+const {color} = Theme;
 const Tab = createBottomTabNavigator();
-const _initLogin = async signIn => {
-  try {
-    let user = await _getData('user');
-    user = JSON.parse(user);
-    // eslint-disable-next-line no-extra-boolean-cast
-    if (!!user?.user_id) {
-      signIn(user?.user_id);
-    }
-  } catch (error) {
-    console.log('error ', error);
-  }
-};
-
 const configTab = ({
   title,
   isHidden = false,
@@ -52,7 +41,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
         case 'Bot':
@@ -60,7 +49,7 @@ const configTab = ({
             <MaterialCommunityIcons
               name="robot"
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
         case 'Market':
@@ -68,7 +57,7 @@ const configTab = ({
             <MaterialCommunityIcons
               name={'finance'}
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
         case 'Setting':
@@ -76,7 +65,7 @@ const configTab = ({
             <Feather
               name={'user'}
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
         default:
@@ -84,7 +73,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
       }
@@ -94,7 +83,7 @@ const configTab = ({
         <Text
           style={[
             GlobalStyle.textSm,
-            {color: focused ? Theme.color.white : Theme.color.grey},
+            {color: focused ? color.yellow : color.white},
           ]}>
           {title}
         </Text>
@@ -122,11 +111,6 @@ const configTab = ({
 
 const Router = () => {
   const {isAuth, signIn} = useContext(AuthContext);
-
-  useEffect(() => {
-    _initLogin(signIn);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const routeNameRef = React.useRef();
   const Stack = createNativeStackNavigator();
@@ -201,8 +185,8 @@ const Router = () => {
           options={{headerShown: false, animation: 'slide_from_right'}}
         />
         <Stack.Screen
-          name="create_robot"
-          component={RobotScreenCreate}
+          name="exchanger_permission"
+          component={ExchangerPermissionScreen}
           options={{headerShown: false, animation: 'slide_from_right'}}
         />
         <Stack.Screen

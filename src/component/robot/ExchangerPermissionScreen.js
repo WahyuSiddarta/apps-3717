@@ -9,16 +9,16 @@ import {
   Platform,
   TouchableOpacity,
 } from 'react-native';
+import {useState} from 'react';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
 
 import {Header, RegularInput, SafeView} from '../common';
 import {GlobalStyle, Theme} from '../../_data/Styles';
-import {useState} from 'react';
 import {MyPrimaryButton} from '../common/Button';
 
-const {color} = Theme;
-const RobotScreenCreate = ({route, navigation}) => {
+const {spacing, color} = Theme;
+const ExchangerPermissionScreen = ({route, navigation}) => {
   const {exchanger_name} = route.params || {};
   const {height} = useWindowDimensions();
 
@@ -87,12 +87,16 @@ const RobotScreenCreate = ({route, navigation}) => {
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         keyboardVerticalOffset={20}>
-        <ScrollView style={[styles.container, {height: height - 75}]}>
-          <View style={{marginTop: 10}}>
-            <Text style={styles.subtitleTitle}>
+        <ScrollView
+          style={[
+            GlobalStyle.container,
+            {height: height - 75, paddingHorizontal: spacing.l},
+          ]}>
+          <View style={styles.titleContainer}>
+            <Text style={[GlobalStyle.h3, GlobalStyle.bold, styles.fontWhite]}>
               Please activate trading authority
             </Text>
-            <Text style={styles.subtitle}>
+            <Text style={[GlobalStyle.textMd, styles.fontGrey]}>
               API is encrypted by AES, and transmitted by asymmetric encryption
               when in use, so there is no need to worry about leakage.
             </Text>
@@ -113,26 +117,42 @@ const RobotScreenCreate = ({route, navigation}) => {
               value={form?.secretKey}
               onChange={handleSecret}
             />
-            <View style={{marginTop: Theme.spacing.l}}>
+            <View style={{marginTop: spacing.l}}>
               <MyPrimaryButton
                 disabled={!validate}
                 text={'Link ' + (!!exchanger_name ? exchanger_name : '')}
               />
             </View>
           </View>
-          <View style={{flexDirection: 'row', marginTop: Theme.spacing.m}}>
-            <View style={{flex: 0.8}}>
-              <Text style={styles.keyText}>{codeKey}</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              marginVertical: spacing.m,
+              gap: spacing.s,
+            }}>
+            <View style={{flexGrow: 1}}>
+              <Text style={[GlobalStyle.textMd, styles.fontGrey]}>
+                {codeKey}
+              </Text>
             </View>
-            <View style={{flex: 0.2, alignSelf: 'center'}}>
+            <View style={{alignSelf: 'center'}}>
               <TouchableOpacity onPress={() => copyKey(codeKey)}>
-                <Text style={styles.copyText}>Copy</Text>
+                <Text
+                  style={[
+                    GlobalStyle.textMd,
+                    GlobalStyle.bold,
+                    styles.fontYellow,
+                  ]}>
+                  Copy
+                </Text>
               </TouchableOpacity>
             </View>
           </View>
-          <View>
-            <Text style={styles.tipsTitle}>Tips:</Text>
-            <Text style={styles.tipsDesc}>
+          <View style={{gap: spacing.s}}>
+            <Text style={[GlobalStyle.h3, GlobalStyle.bold, styles.fontWhite]}>
+              Tips:
+            </Text>
+            <Text style={[GlobalStyle.textMd, styles.fontGrey]}>
               For account assets security and convenient access to transaction
               data, it is suggest that you re-apply for the API and do not share
               it with other products or services.
@@ -145,60 +165,23 @@ const RobotScreenCreate = ({route, navigation}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    // paddingHorizontal: Theme.spacing.l,
-    // backgroundColor: Theme.color.navigation,
-    backgroundColor: '#0b1022',
-  },
   cardExchanger: {
-    backgroundColor: '#0b1022',
-    paddingHorizontal: Theme.spacing.l,
-    paddingVertical: Theme.spacing.s,
-    gap: Theme.spacing.s,
-    // borderRadius: 10,
+    paddingVertical: spacing.s,
+    gap: spacing.s,
   },
-  subtitleTitle: {
-    ...GlobalStyle.h3,
-    ...GlobalStyle.bold,
-    color: Theme.color.grey,
-    marginBottom: Theme.spacing.s,
-    paddingHorizontal: Theme.spacing.l,
-    textAlign: 'justify',
+  titleContainer: {
+    marginTop: spacing.xl,
+    gap: spacing.s,
   },
-  subtitle: {
-    ...GlobalStyle.textMd,
-    color: Theme.color.grey,
-    marginBottom: Theme.spacing.m,
-    paddingHorizontal: Theme.spacing.l,
-    textAlign: 'justify',
+  fontWhite: {
+    color: color.white,
   },
-  keyText: {
-    ...GlobalStyle.textMd,
-    color: Theme.color.grey,
-    marginBottom: Theme.spacing.m,
-    paddingHorizontal: Theme.spacing.l,
+  fontGrey: {
+    color: color.grey,
   },
-  copyText: {
-    ...GlobalStyle.textMd,
-    ...GlobalStyle.bold,
-    color: Theme.color.yellow,
-    marginBottom: Theme.spacing.m,
-    paddingHorizontal: Theme.spacing.l,
-    textAlign: 'left',
-  },
-  tipsTitle: {
-    ...GlobalStyle.h3,
-    ...GlobalStyle.bold,
-    color: Theme.color.grey,
-    marginBottom: Theme.spacing.s,
-    paddingHorizontal: Theme.spacing.l,
-  },
-  tipsDesc: {
-    ...GlobalStyle.textMd,
-    color: Theme.color.grey,
-    marginBottom: Theme.spacing.m,
-    paddingHorizontal: Theme.spacing.l,
+  fontYellow: {
+    color: color.yellow,
   },
 });
 
-export default RobotScreenCreate;
+export default ExchangerPermissionScreen;
