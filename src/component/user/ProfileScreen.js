@@ -35,7 +35,7 @@ const ProfileScreen = ({navigation}) => {
         backgroundColor={color.headerColor}
       />
       <Header navigation={navigation} headerText="Profile" />
-      <ScrollView style={[GlobalStyle.container, {height: height - 145}]}>
+      <ScrollView style={[GlobalStyle.container, {height: height - 120}]}>
         <View style={{width: '100%'}}>
           <View style={{marginTop: spacing.m, gap: spacing.s}}>
             <Text style={[styles.fontWhite, GlobalStyle.h2, GlobalStyle.bold]}>
@@ -194,6 +194,7 @@ const styles = StyleSheet.create({
   optionBox: {
     justifyContent: 'space-between',
     flexDirection: 'row',
+    alignItems: 'center',
     paddingTop: spacing.m,
   },
   fontWhite: {color: color.white},

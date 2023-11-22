@@ -162,7 +162,7 @@ const EmptyRobot = ({onSubmit}) => {
   }, []);
 
   return (
-    <View style={[styles.botContainer, {height: height + 30, marginTop: -120}]}>
+    <View style={[styles.botContainer, {height: height + 55, marginTop: -120}]}>
       <Lottie
         ref={animationRef}
         style={{marginTop: -100}}

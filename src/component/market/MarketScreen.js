@@ -3,32 +3,178 @@ import {
   StatusBar,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
   useWindowDimensions,
 } from 'react-native';
 import React, {useContext} from 'react';
-import Feather from 'react-native-vector-icons/Feather';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FontAwesome5Brands from 'react-native-vector-icons/FontAwesome5Pro';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {LineChart} from 'react-native-gifted-charts';
 
-import {Header, SafeView, featureNotReady} from '../common';
+import {Header, SafeView} from '../common';
 import {Theme} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 import {AuthContext} from '../../_context/AuthContext';
 
-const {color} = Theme;
-const leftIcon = {
-  size: 20,
-  color: Theme.color.greyLight,
+const {color, spacing} = Theme;
+
+const RandomChart = ({i}) => {
+  if (i == 0) {
+    return (
+      <LineChart
+        initialSpacing={0}
+        data={[{value: 0}, {value: 40}, {value: 18}, {value: 36}, {value: 80}]}
+        height={30}
+        spacing={10}
+        hideDataPoints
+        thickness={3}
+        hideRules
+        hideYAxisText
+        yAxisColor="transparent"
+        showVerticalLines
+        verticalLinesColor="transparent"
+        xAxisColor="transparent"
+        color={color.green}
+        curved
+      />
+    );
+  } else if (i == 1) {
+    return (
+      <LineChart
+        initialSpacing={0}
+        data={[
+          {value: 0},
+          {value: 20},
+          {value: 18},
+          {value: 36},
+          {value: 60},
+          {value: 0},
+          {value: 20},
+          {value: 18},
+          {value: 36},
+          {value: 60},
+          {value: 0},
+          {value: 20},
+          {value: 18},
+          {value: 36},
+          {value: 60},
+        ]}
+        height={30}
+        spacing={5}
+        hideDataPoints
+        thickness={3}
+        hideRules
+        hideYAxisText
+        yAxisColor="transparent"
+        showVerticalLines
+        verticalLinesColor="transparent"
+        xAxisColor="transparent"
+        color={color.green}
+        curved
+      />
+    );
+  } else {
+    return (
+      <LineChart
+        initialSpacing={0}
+        data={[{value: 0}, {value: 40}, {value: 18}, {value: 36}, {value: 80}]}
+        height={30}
+        spacing={10}
+        hideDataPoints
+        thickness={3}
+        hideRules
+        hideYAxisText
+        yAxisColor="transparent"
+        showVerticalLines
+        verticalLinesColor="transparent"
+        xAxisColor="transparent"
+        color={color.green}
+        curved
+      />
+    );
+  }
 };
+const BotList = ({data}) => {
+  return (
+    <View style={styles.widgetContainer}>
+      <View style={{flexDirection: 'row'}}>
+        <View style={{flexGrow: 1}}>
+          <Text style={[styles.fontWhite, GlobalStyle.h3, GlobalStyle.bold]}>
+            XRP-USDT
+          </Text>
+          <Text style={[styles.fontGrey, GlobalStyle.textMd]}>
+            Binance Futures
+          </Text>
+        </View>
+        <View style={styles.copyButton}>
+          <Text style={[styles.fontWhite, GlobalStyle.textSm]}>Copy</Text>
+        </View>
+      </View>
+      <View style={{flexDirection: 'row', gap: spacing.m}}>
+        <View style={{flex: 0.3}}>
+          <View>
+            <Text
+              style={[styles.fontGreen, GlobalStyle.textMd, GlobalStyle.bold]}>
+              +622.18%
+            </Text>
+          </View>
+          <View style={{marginTop: 5}}>
+            <Text style={[styles.fontWhite, GlobalStyle.textSmaller]}>
+              30D ROI
+            </Text>
+          </View>
+        </View>
+        <View style={{flex: 0.2}}>
+          <RandomChart i={data} />
+        </View>
+        <View style={{flex: 0.3}}>
+          <View style={{alignItems: 'center', justifyContent: 'space-between'}}>
+            <View>
+              <Text
+                style={[
+                  GlobalStyle.textMd,
+                  GlobalStyle.bold,
+                  styles.fontWhite,
+                ]}>
+                3514
+              </Text>
+            </View>
+            <View style={{marginTop: 5}}>
+              <Text style={[styles.fontWhite, GlobalStyle.textSmaller]}>
+                Copier
+              </Text>
+            </View>
+          </View>
+        </View>
+
+        <View style={{flex: 0.2}}>
+          <View style={{flexDirection: 'column'}}>
+            <View
+              style={[
+                styles.riskBadge,
+                data == 0 ? styles.riskMedium : styles.riskMax,
+              ]}>
+              <Text
+                style={[
+                  GlobalStyle.textMd,
+                  GlobalStyle.bold,
+                  styles.fontWhite,
+                ]}>
+                5
+              </Text>
+            </View>
+            <View style={{marginTop: 5}}>
+              <Text style={[styles.fontWhite, GlobalStyle.textSmaller]}>
+                Risk
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  );
+};
+
 const MarketScreen = ({navigation}) => {
   const {height} = useWindowDimensions();
-  const {signOut} = useContext(AuthContext);
 
   return (
     <SafeView>
@@ -37,485 +183,22 @@ const MarketScreen = ({navigation}) => {
         backgroundColor={color.headerColor}
       />
       <Header navigation={navigation} headerText="Market" />
-      <ScrollView style={[GlobalStyle.container, {height: height - 145}]}>
+      <ScrollView style={[GlobalStyle.container, {height: height - 120}]}>
         <View style={{width: '100%'}}>
-          <Text
-            style={{
-              ...GlobalStyle.textMd,
-              ...GlobalStyle.bold,
-              textAlign: 'left',
-              color: Theme.color.white,
-              marginTop: Theme.spacing.s,
-            }}>
-            Trending Traders
-          </Text>
-          <Text
-            style={{
-              color: Theme.color.white,
-              ...GlobalStyle.textSmaller,
-            }}>
-            Trending traders in the last 7-days
-          </Text>
-          {/* 1 */}
-          <View
-            style={{flexDirection: 'row', gap: 10, marginTop: Theme.spacing.l}}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: Theme.color.secondColor,
-                borderRadius: 10,
-                paddingVertical: 10,
-                paddingHorizontal: 15,
-              }}>
-              <View style={{flexDirection: 'row'}}>
-                <View style={{flex: 0.8}}>
-                  <Text
-                    style={{
-                      color: Theme.color.white,
-                      ...GlobalStyle.textMd,
-                      ...GlobalStyle.bold,
-                    }}>
-                    XRP-USDT
-                  </Text>
-                  <Text
-                    style={{
-                      color: Theme.color.white,
-                      ...GlobalStyle.textMd,
-                    }}>
-                    Binance Futures
-                  </Text>
-                </View>
-                <View style={{flex: 0.2}}>
-                  <View
-                    style={{
-                      backgroundColor: '#122499',
-                      borderRadius: 10,
-                      paddingVertical: 7,
-                      paddingHorizontal: 10,
-                      width: '100%',
-                      alignItems: 'center',
-                    }}>
-                    <Text
-                      style={{
-                        color: Theme.color.white,
-                        ...GlobalStyle.textSm,
-                      }}>
-                      Copy
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  gap: 10,
-                  marginTop: Theme.spacing.m,
-                }}>
-                <View style={{flex: 0.3}}>
-                  <View style={{flexDirection: 'column'}}>
-                    <View>
-                      <Text
-                        style={{
-                          color: '#198052',
-                          ...GlobalStyle.textMd,
-                          ...GlobalStyle.bold,
-                        }}>
-                        +622.18%
-                      </Text>
-                    </View>
-                    <View style={{marginTop: 5}}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textSmaller,
-                        }}>
-                        30D ROI
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={{flex: 0.2}}>
-                  <View style={{}}>
-                    <LineChart
-                      initialSpacing={0}
-                      data={[
-                        {value: 0},
-                        {value: 10},
-                        {value: 50},
-                        {value: 20},
-                        {value: 60},
-                      ]}
-                      height={40}
-                      spacing={10}
-                      hideDataPoints
-                      thickness={3}
-                      hideRules
-                      hideYAxisText
-                      yAxisColor="transparent"
-                      showVerticalLines
-                      verticalLinesColor="transparent"
-                      xAxisColor="transparent"
-                      color="#198052"
-                      curved
-                    />
-                  </View>
-                </View>
-                <View style={{flex: 0.3}}>
-                  <View style={{flexDirection: 'column', alignItems: 'center'}}>
-                    <View>
-                      <Text style={styles.optionTextBold}>3514</Text>
-                    </View>
-                    <View style={{marginTop: 5}}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textSmaller,
-                        }}>
-                        Copier
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-
-                <View style={{flex: 0.2}}>
-                  <View style={{flexDirection: 'column'}}>
-                    <View
-                      style={{
-                        borderRadius: 3,
-                        backgroundColor: '#b3a042',
-                        width: 20,
-                        alignItems: 'center',
-                      }}>
-                      <Text style={styles.optionTextBold}>5</Text>
-                    </View>
-                    <View style={{marginTop: 5}}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textSmaller,
-                        }}>
-                        Risk
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </View>
+          <View style={{paddingVertical: spacing.l}}>
+            <Text style={[GlobalStyle.h3, GlobalStyle.bold, styles.fontWhite]}>
+              Trending Traders
+            </Text>
+            <Text style={[GlobalStyle.textMd, styles.fontGrey]}>
+              Trending traders in the last 7-days
+            </Text>
           </View>
-
-          {/* 2 */}
-          <View
-            style={{flexDirection: 'row', gap: 10, marginTop: Theme.spacing.l}}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: Theme.color.secondColor,
-                borderRadius: 10,
-                paddingVertical: 10,
-                paddingHorizontal: 15,
-              }}>
-              <View style={{flexDirection: 'row'}}>
-                <View style={{flex: 0.8}}>
-                  <Text
-                    style={{
-                      color: Theme.color.white,
-                      ...GlobalStyle.textMd,
-                      ...GlobalStyle.bold,
-                    }}>
-                    FTM-USDT
-                  </Text>
-                  <Text
-                    style={{
-                      color: Theme.color.white,
-                      ...GlobalStyle.textMd,
-                    }}>
-                    ByBit USDT Perpetual
-                  </Text>
-                </View>
-                <View style={{flex: 0.2}}>
-                  <View
-                    style={{
-                      backgroundColor: '#122499',
-                      borderRadius: 10,
-                      paddingVertical: 7,
-                      paddingHorizontal: 10,
-                      width: '100%',
-                      alignItems: 'center',
-                    }}>
-                    <Text
-                      style={{
-                        color: Theme.color.white,
-                        ...GlobalStyle.textSm,
-                      }}>
-                      Copy
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  gap: 10,
-                  marginTop: Theme.spacing.m,
-                }}>
-                <View style={{flex: 0.3}}>
-                  <View style={{flexDirection: 'column'}}>
-                    <View>
-                      <Text
-                        style={{
-                          color: '#198052',
-                          ...GlobalStyle.textMd,
-                          ...GlobalStyle.bold,
-                        }}>
-                        +292.66%
-                      </Text>
-                    </View>
-                    <View style={{marginTop: 5}}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textSmaller,
-                        }}>
-                        30D ROI
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={{flex: 0.2}}>
-                  <View style={{}}>
-                    <LineChart
-                      initialSpacing={0}
-                      data={[
-                        {value: 0},
-                        {value: 40},
-                        {value: 18},
-                        {value: 36},
-                        {value: 80},
-                      ]}
-                      height={40}
-                      spacing={10}
-                      hideDataPoints
-                      thickness={3}
-                      hideRules
-                      hideYAxisText
-                      yAxisColor="transparent"
-                      showVerticalLines
-                      verticalLinesColor="transparent"
-                      xAxisColor="transparent"
-                      color="#198052"
-                      curved
-                    />
-                  </View>
-                </View>
-                <View style={{flex: 0.3}}>
-                  <View style={{flexDirection: 'column', alignItems: 'center'}}>
-                    <View>
-                      <Text style={styles.optionTextBold}>371</Text>
-                    </View>
-                    <View style={{marginTop: 5}}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textSmaller,
-                        }}>
-                        Copier
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-
-                <View style={{flex: 0.2}}>
-                  <View style={{flexDirection: 'column'}}>
-                    {/* <View
-                      style={{
-                        borderRadius: 3,
-                        backgroundColor: '#b3a042',
-                        width: 20,
-                        alignItems: 'center',
-                      }}>
-                      <Text style={styles.optionTextBold}>5</Text>
-                    </View> */}
-                    <View>
-                      <Text style={styles.optionTextBold}>--</Text>
-                    </View>
-                    <View style={{marginTop: 5}}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textSmaller,
-                        }}>
-                        Risk
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </View>
-          </View>
-
-          {/* 3 */}
-          <View
-            style={{flexDirection: 'row', gap: 10, marginTop: Theme.spacing.l}}>
-            <View
-              style={{
-                flex: 1,
-                backgroundColor: Theme.color.secondColor,
-                borderRadius: 10,
-                paddingVertical: 10,
-                paddingHorizontal: 15,
-              }}>
-              <View style={{flexDirection: 'row'}}>
-                <View style={{flex: 0.8}}>
-                  <Text
-                    style={{
-                      color: Theme.color.white,
-                      ...GlobalStyle.textMd,
-                      ...GlobalStyle.bold,
-                    }}>
-                    ORDI-USDT
-                  </Text>
-                  <Text
-                    style={{
-                      color: Theme.color.white,
-                      ...GlobalStyle.textMd,
-                    }}>
-                    ByBit USDT Perpetual
-                  </Text>
-                </View>
-                <View style={{flex: 0.2}}>
-                  <View
-                    style={{
-                      backgroundColor: '#122499',
-                      borderRadius: 10,
-                      paddingVertical: 7,
-                      paddingHorizontal: 10,
-                      width: '100%',
-                      alignItems: 'center',
-                    }}>
-                    <Text
-                      style={{
-                        color: Theme.color.white,
-                        ...GlobalStyle.textSm,
-                      }}>
-                      Copy
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  gap: 10,
-                  marginTop: Theme.spacing.m,
-                }}>
-                <View style={{flex: 0.3}}>
-                  <View style={{flexDirection: 'column'}}>
-                    <View>
-                      <Text
-                        style={{
-                          color: '#198052',
-                          ...GlobalStyle.textMd,
-                          ...GlobalStyle.bold,
-                        }}>
-                        +552%
-                      </Text>
-                    </View>
-                    <View style={{marginTop: 5}}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textSmaller,
-                        }}>
-                        30D ROI
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-                <View style={{flex: 0.2}}>
-                  {/* <FontAwesome5 name="chart-line" size={40} color={'#198052'} /> */}
-                  <View style={{}}>
-                    <LineChart
-                      initialSpacing={0}
-                      data={[
-                        {value: 0},
-                        {value: 20},
-                        {value: 18},
-                        {value: 36},
-                        {value: 60},
-                        {value: 0},
-                        {value: 20},
-                        {value: 18},
-                        {value: 36},
-                        {value: 60},
-                        {value: 0},
-                        {value: 20},
-                        {value: 18},
-                        {value: 36},
-                        {value: 60},
-                      ]}
-                      height={40}
-                      spacing={5}
-                      hideDataPoints
-                      thickness={3}
-                      hideRules
-                      hideYAxisText
-                      yAxisColor="transparent"
-                      showVerticalLines
-                      verticalLinesColor="transparent"
-                      xAxisColor="transparent"
-                      color="#198052"
-                      curved
-                    />
-                  </View>
-                </View>
-                <View style={{flex: 0.3}}>
-                  <View style={{flexDirection: 'column', alignItems: 'center'}}>
-                    <View>
-                      <Text style={styles.optionTextBold}>76</Text>
-                    </View>
-                    <View style={{marginTop: 5}}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textSmaller,
-                        }}>
-                        Copier
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-
-                <View style={{flex: 0.2}}>
-                  <View style={{flexDirection: 'column'}}>
-                    <View
-                      style={{
-                        borderRadius: 3,
-                        backgroundColor: '#5e1a1f',
-                        width: 20,
-                        alignItems: 'center',
-                      }}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textMd,
-                          ...GlobalStyle.bold,
-                        }}>
-                        9
-                      </Text>
-                    </View>
-                    <View style={{marginTop: 5}}>
-                      <Text
-                        style={{
-                          color: Theme.color.white,
-                          ...GlobalStyle.textSmaller,
-                        }}>
-                        Risk
-                      </Text>
-                    </View>
-                  </View>
-                </View>
-              </View>
-            </View>
+          <View style={{gap: spacing.l, marginBottom: spacing.xl}}>
+            <BotList data={0} />
+            <BotList data={1} />
+            <BotList data={2} />
+            <BotList data={1} />
+            <BotList data={0} />
           </View>
         </View>
       </ScrollView>
@@ -525,11 +208,7 @@ const MarketScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   optionText: {color: Theme.color.white, ...GlobalStyle.textMd},
-  optionTextBold: {
-    color: Theme.color.white,
-    ...GlobalStyle.textMd,
-    ...GlobalStyle.bold,
-  },
+
   balanceText: {color: Theme.color.white, ...GlobalStyle.h3},
   endingOnText: {
     color: Theme.color.white,
@@ -563,6 +242,37 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     flexDirection: 'row',
     paddingTop: 10,
+  },
+  fontWhite: {color: color.white},
+  fontGreen: {color: color.green},
+  fontGrey: {color: color.grey},
+  cardContainer: {flexDirection: 'row', gap: spacing.m, marginTop: spacing.l},
+  widgetContainer: {
+    backgroundColor: color.secondColor,
+    borderRadius: spacing.m,
+    paddingTop: spacing.m,
+    paddingHorizontal: spacing.l,
+    gap: spacing.m,
+  },
+  copyButton: {
+    backgroundColor: color.primaryColor,
+    borderRadius: spacing.m,
+    paddingVertical: spacing.s,
+    paddingHorizontal: spacing.m,
+    width: 80,
+    height: 30,
+    alignItems: 'center',
+  },
+  riskBadge: {
+    borderRadius: spacing.s / 2,
+    width: 20,
+    alignItems: 'center',
+  },
+  riskMedium: {
+    backgroundColor: color.riskMedium,
+  },
+  riskMax: {
+    backgroundColor: color.riskMax,
   },
 });
 

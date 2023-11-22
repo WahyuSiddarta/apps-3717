@@ -3,7 +3,7 @@ import PieChart from 'react-native-pie-chart';
 
 import {GlobalStyle, Theme} from '../../_data/Styles';
 
-const {spacing, color, fontRobotoBold} = Theme;
+const {spacing, color} = Theme;
 export const TotalBalance = ({unit, localizePrice}) => {
   // const sliceColor = ['#384EAA', '#5b38aa', '#3887aa', '#38aa5b'];
   const sliceColor = ['#e4bc15', '#15e455', '#153de4', '#e415a5'];
@@ -86,10 +86,8 @@ export const TopLeader = ({}) => {
     {name: 'USDT-ETH', deals: 3, bot: 3, exchanger: 'OKEXv5'},
   ];
   return (
-    <View>
-      <View style={{marginBottom: spacing.s}}>
-        <Text style={[styles.fontWhite, GlobalStyle.h3]}>Tops Pair</Text>
-      </View>
+    <View style={{gap: spacing.s}}>
+      <Text style={[styles.fontWhite, GlobalStyle.h3]}>Tops Pair</Text>
       {data?.map((d, index) => (
         <TopLeaderRow data={d} key={index} />
       ))}
@@ -102,7 +100,7 @@ const TopLeaderRow = ({data}) => {
   const series = [active, 100 - active];
   const sliceColor = ['#765793', '#89b39f'];
   return (
-    <View style={[styles.container, {flexDirection: 'row', marginTop: 8}]}>
+    <View style={[styles.container, {flexDirection: 'row'}]}>
       <View style={{justifyContent: 'center', flex: 1, marginRight: 8}}>
         <PieChart
           widthAndHeight={40}
@@ -114,20 +112,29 @@ const TopLeaderRow = ({data}) => {
       </View>
       <View style={{justifyContent: 'center', flex: 2}}>
         <Text style={[GlobalStyle.textSm, styles.fontGrey]}>Deals / Bot</Text>
-        <Text style={[styles.fontWhite, GlobalStyle.textMd, fontRobotoBold]}>
+        <Text style={[styles.fontWhite, GlobalStyle.textMd, GlobalStyle.bold]}>
           {data.deals} / {data.bot}
         </Text>
       </View>
-      <View style={{justifyContent: 'center', flex: 2}}>
-        <Text style={[GlobalStyle.textSm, styles.fontGrey]}>Pair</Text>
-        <Text style={[styles.fontWhite, GlobalStyle.textMd, fontRobotoBold]}>
-          {data.name}
+      <View style={{justifyContent: 'flex-end', flex: 2}}>
+        <Text style={[GlobalStyle.textSm, styles.fontGrey]}>Exchanger</Text>
+        <Text style={[styles.fontWhite, GlobalStyle.textMd, GlobalStyle.bold]}>
+          {data.exchanger}
         </Text>
       </View>
       <View style={{justifyContent: 'center', flex: 2}}>
-        <Text style={[GlobalStyle.textSm, styles.fontGrey]}>Exchanger</Text>
-        <Text style={[styles.fontWhite, GlobalStyle.textMd, fontRobotoBold]}>
-          {data.exchanger}
+        <Text
+          style={[GlobalStyle.textSm, styles.fontGrey, {textAlign: 'right'}]}>
+          Pair
+        </Text>
+        <Text
+          style={[
+            styles.fontWhite,
+            GlobalStyle.textMd,
+            GlobalStyle.bold,
+            {textAlign: 'right'},
+          ]}>
+          {data.name}
         </Text>
       </View>
     </View>
@@ -142,9 +149,10 @@ const styles = StyleSheet.create({
     color: color.grey,
   },
   container: {
-    backgroundColor: color.mainContainer,
+    backgroundColor: color.secondColor,
     borderRadius: spacing.s,
-    padding: spacing.l,
+    paddingHorizontal: spacing.l,
+    paddingVertical: spacing.m,
   },
   bulletPointRow: {
     flexDirection: 'row',

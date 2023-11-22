@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   formInput: {
     ...GlobalStyle.textMd,
     borderWidth: 1,
-    borderColor: color.primaryColor,
+    borderColor: `rgba(255,255,255,0.5)`,
     borderRadius: spacing.m,
     color: color.white,
     paddingVertical: spacing.s,

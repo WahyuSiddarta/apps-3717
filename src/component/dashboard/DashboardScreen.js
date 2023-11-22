@@ -58,16 +58,19 @@ const DashboardScreen = ({navigation}) => {
           <Text style={[GlobalStyle.h3, styles.fontWhite]}>
             Account Information
           </Text>
-          <View style={{flexDirection: 'row', marginBottom: spacing.l}}>
+          <View style={{flexDirection: 'row'}}>
             <View style={styles.box}>
               <TotalBalance unit={'BTC'} localizePrice={100} />
             </View>
           </View>
         </View>
-        <View style={{marginTop: 20}}>
+        <View style={{marginTop: spacing.l}}>
           <TopLeader />
         </View>
-        <View style={{height: 25}} />
+        <View style={{marginTop: spacing.l}}>
+          <TopLeader />
+        </View>
+        <View style={{height: spacing.xl}} />
       </ScrollView>
     </SafeView>
   );

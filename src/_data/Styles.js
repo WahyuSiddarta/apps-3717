@@ -38,17 +38,23 @@ export const Theme = {
   color: {
     secondColor: palette.mirrage,
     red: '#ff6359',
-    green: '#0acca2',
+    green: '#198052',
     greyLight: '#F3F3F3',
     yellow: palette.goldTips,
     navigation: palette.azure_d_3,
     headerColor: '#161f44',
-    primaryColor: palette.azure,
+    // primaryColor: palette.azure,
+    primaryColor: '#122499',
     white: palette.white,
     mainBackground: palette.azure_s_8,
     mainBackgroundLigher: palette.azure_s_7,
     mainContainer: '#1c2755',
-    grey: '#a7aac3',
+    // grey: '#a7aac3',
+    grey: '#bebec0',
+
+    // RISK COLOR
+    riskMedium: '#b3a042',
+    riskMax: '#5e1a1f',
   },
 };
 

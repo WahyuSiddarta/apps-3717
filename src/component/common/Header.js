@@ -2,6 +2,7 @@ import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 import React from 'react';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import Feather from 'react-native-vector-icons/Feather';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 
 const {spacing, color} = Theme;
@@ -13,15 +14,17 @@ export const Header = ({navigation, headerText}) => {
           <TouchableOpacity
             style={{position: 'absolute', left: 15}}
             onPress={() => navigation.goBack()}>
-            <View style={style.iconContainer}>
+            {/* <View style={style.iconContainer}>
               <FontAwesome5 name="angle-left" size={16} color={'white'} />
-            </View>
+            </View> */}
+            <Feather name="chevron-left" size={24} color={'white'} />
           </TouchableOpacity>
         )}
         <Text
           style={{
             color: Theme.color.white,
             ...GlobalStyle.h2,
+            ...GlobalStyle.bold,
           }}>
           {headerText}
         </Text>

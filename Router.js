@@ -23,6 +23,7 @@ import MarketScreen from './src/component/market/MarketScreen';
 import RobotScreenCreate from './src/component/robot/RobotScreenCreate';
 import ExchangerPermissionScreen from './src/component/robot/ExchangerPermissionScreen';
 
+const {color} = Theme;
 const Tab = createBottomTabNavigator();
 const configTab = ({
   title,
@@ -38,7 +39,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
         case 'Bot':
@@ -46,7 +47,7 @@ const configTab = ({
             <MaterialCommunityIcons
               name="robot"
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
         case 'Market':
@@ -54,7 +55,7 @@ const configTab = ({
             <MaterialCommunityIcons
               name={'finance'}
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
         case 'Setting':
@@ -62,7 +63,7 @@ const configTab = ({
             <Feather
               name={'user'}
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
         default:
@@ -70,7 +71,7 @@ const configTab = ({
             <Feather
               name={'home'}
               size={23}
-              color={focused ? Theme.color.white : Theme.color.grey}
+              color={focused ? color.yellow : color.white}
             />
           );
       }
@@ -80,7 +81,7 @@ const configTab = ({
         <Text
           style={[
             GlobalStyle.textSm,
-            {color: focused ? Theme.color.white : Theme.color.grey},
+            {color: focused ? color.yellow : color.white},
           ]}>
           {title}
         </Text>
