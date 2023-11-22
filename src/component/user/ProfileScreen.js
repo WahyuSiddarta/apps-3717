@@ -82,7 +82,7 @@ const ProfileScreen = ({navigation}) => {
                 <MaterialCommunityIcons name="security" {...leftIcon} />
               }
               label="Change Password"
-              handlePress={featureNotReady}
+              handlePress={() => navigation.navigate('change_password')}
             />
           </View>
           <View style={{gap: spacing.s}}>

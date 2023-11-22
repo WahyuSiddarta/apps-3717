@@ -21,6 +21,8 @@ import RobotScreen from './src/component/robot/RobotScreen';
 import ExchangerListScreen from './src/component/robot/ExchangerListScreen';
 import MarketScreen from './src/component/market/MarketScreen';
 import RobotScreenCreate from './src/component/robot/RobotScreenCreate';
+import ForgetPasswordScreen from './src/component/Auth/ForgetPasswordScreen';
+import ChangePasswordScreen from './src/component/user/ChangePasswordScreen';
 
 const Tab = createBottomTabNavigator();
 const _initLogin = async signIn => {
@@ -206,6 +208,16 @@ const Router = () => {
         <Stack.Screen
           name="exchanger_list"
           component={ExchangerListScreen}
+          options={{headerShown: false, animation: 'slide_from_right'}}
+        />
+        <Stack.Screen
+          name="forget_password"
+          component={ForgetPasswordScreen}
+          options={{headerShown: false, animation: 'slide_from_right'}}
+        />
+        <Stack.Screen
+          name="change_password"
+          component={ChangePasswordScreen}
           options={{headerShown: false, animation: 'slide_from_right'}}
         />
       </Stack.Navigator>

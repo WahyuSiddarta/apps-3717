@@ -25,7 +25,7 @@ import {isEmpty, validateEmail} from '../../_helpers/utils';
 import {useIsFold} from '../../_hooks';
 
 const {color, spacing} = Theme;
-const LoginScreen = ({navigation}) => {
+const ForgetPasswordScreen = ({navigation}) => {
   const {user, signIn} = useContext(AuthContext);
   if (!isEmpty(user)) {
     navigation.navigate('main');
@@ -73,10 +73,7 @@ const LoginScreen = ({navigation}) => {
         <View style={[styles.welcomeContainer, {height: height - 110}]}>
           <View style={{gap: spacing.s}}>
             <Text style={[GlobalStyle.h1, GlobalStyle.bold, styles.headerText]}>
-              Welcome Back!
-            </Text>
-            <Text style={[GlobalStyle.h3, styles.headerText]}>
-              Login to Continue
+              Reset Password
             </Text>
           </View>
           <View style={[GlobalStyle.container, {marginTop: spacing.xl}]}>
@@ -88,36 +85,19 @@ const LoginScreen = ({navigation}) => {
                 value={email}
                 onChange={value => setEmail(value)}
               />
-              <PasswordInput
-                label="Password"
-                value={password}
-                onChange={value => setPassword(value)}
-              />
-              <TouchableOpacity
-                onPress={() => navigation.navigate('forget_password')}
-                style={{marginTop: spacing.s}}>
-                <Text style={[styles.forgetPassword, GlobalStyle.textMd]}>
-                  Forget Password ?
-                </Text>
-              </TouchableOpacity>
               <View style={{marginTop: spacing.xl}}>
                 <MyPrimaryButton
                   disabled={!isValid}
                   loading={isLoading}
-                  text={'Login'}
+                  text={'Send'}
                   handlePress={onSumbit}
                 />
               </View>
-              <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+              <View
+                style={{flexDirection: 'row', justifyContent: 'flex-start'}}>
                 <Text style={[styles.otherAction, GlobalStyle.textMd]}>
-                  Don't Have Account ?
+                  We'll email you a link to reset your password
                 </Text>
-                <TouchableOpacity
-                  onPress={() => navigation.navigate('register_screen')}>
-                  <Text style={[GlobalStyle.textMd, styles.otherAction2]}>
-                    {' Register'}
-                  </Text>
-                </TouchableOpacity>
               </View>
             </KeyboardAvoidingView>
           </View>
@@ -153,4 +133,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+export default ForgetPasswordScreen;
