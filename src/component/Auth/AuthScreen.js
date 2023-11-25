@@ -31,7 +31,7 @@ const AuthScreen = ({navigation}) => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            style={[styles.actionButton]}
+            style={[styles.actionButtonWhite]}
             onPress={() => navigation.navigate('login_screen')}>
             <Text style={[GlobalStyle.h3, styles.loginButtonText]}>Login</Text>
           </TouchableOpacity>
@@ -43,11 +43,12 @@ const AuthScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'transparent',
+    // backgroundColor: 'transparent',
+    backgroundColor: Theme.color.mainBackground,
     height: '100%',
   },
   title: {
-    ...GlobalStyle.h1,
+    ...GlobalStyle.h2,
     textAlign: 'center',
     color: color.white,
     marginBottom: spacing.m,
@@ -75,11 +76,22 @@ const styles = StyleSheet.create({
     elevation: 5,
     alignSelf: 'center',
   },
+  actionButtonWhite: {
+    paddingVertical: spacing.s,
+    paddingHorizontal: spacing.l,
+    borderColor: color.white,
+    borderWidth: 2,
+    borderRadius: 40,
+    width: 200,
+    elevation: 5,
+    alignSelf: 'center',
+    backgroundColor: Theme.color.mainBackground
+  },
   registerButton: {
     backgroundColor: color.primaryColor,
   },
   loginButtonText: {
-    color: color.primaryColor,
+    color: color.white,
     textAlign: 'center',
   },
   registerButtonText: {
