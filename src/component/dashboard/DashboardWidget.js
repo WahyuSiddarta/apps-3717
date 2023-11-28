@@ -150,6 +150,7 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: color.secondColor,
+
     borderRadius: spacing.s,
     paddingHorizontal: spacing.l,
     paddingVertical: spacing.m,

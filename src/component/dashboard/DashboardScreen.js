@@ -11,7 +11,7 @@ import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {SafeView, featureNotReady} from '../common';
-import {Theme} from '../../_data/Styles';
+import {Theme, palette} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 import {TopLeader, TotalBalance} from './DashboardWidget';
 
@@ -29,8 +29,9 @@ const DashboardScreen = ({navigation}) => {
     <SafeView>
       <StatusBar
         barStyle={'light-content'}
-        backgroundColor={color.mainBackground}
+        backgroundColor={palette.primary[700]}
       />
+
       <ScrollView
         style={[GlobalStyle.container, styles.container]}
         refreshControl={

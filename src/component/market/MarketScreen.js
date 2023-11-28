@@ -10,7 +10,7 @@ import React, {useContext} from 'react';
 import {LineChart} from 'react-native-gifted-charts';
 
 import {Header, SafeView} from '../common';
-import {Theme} from '../../_data/Styles';
+import {Theme, palette} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 import {AuthContext} from '../../_context/AuthContext';
 
@@ -180,7 +180,7 @@ const MarketScreen = ({navigation}) => {
     <SafeView>
       <StatusBar
         barStyle={'light-content'}
-        backgroundColor={color.headerColor}
+        backgroundColor={palette.primary[700]}
       />
       <Header navigation={navigation} headerText="Market" />
       <ScrollView style={[GlobalStyle.container, {height: height - 120}]}>

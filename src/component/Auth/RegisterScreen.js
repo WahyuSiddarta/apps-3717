@@ -107,7 +107,7 @@ const RegisterScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   otherAction2: {
-    color: color.grey,
+    color: color.primaryColor,
     paddingTop: spacing.m,
   },
   otherAction: {

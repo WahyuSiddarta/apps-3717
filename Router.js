@@ -3,7 +3,7 @@ import {Text} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer, DarkTheme} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import Feather from 'react-native-vector-icons/Feather';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import {navigationRef} from './RootNavigation';
@@ -38,10 +38,10 @@ const configTab = ({
       switch (title) {
         case 'Dashboard':
           return (
-            <Feather
-              name={'home'}
+            <MaterialCommunityIcons
+              name={'home-variant'}
               size={23}
-              color={focused ? color.yellow : color.white}
+              color={focused ? color.primaryColor : color.grey}
             />
           );
         case 'Bot':
@@ -49,7 +49,7 @@ const configTab = ({
             <MaterialCommunityIcons
               name="robot"
               size={23}
-              color={focused ? color.yellow : color.white}
+              color={focused ? color.primaryColor : color.grey}
             />
           );
         case 'Market':
@@ -57,23 +57,23 @@ const configTab = ({
             <MaterialCommunityIcons
               name={'finance'}
               size={23}
-              color={focused ? color.yellow : color.white}
+              color={focused ? color.primaryColor : color.grey}
             />
           );
         case 'Setting':
           return (
-            <Feather
-              name={'user'}
+            <MaterialIcons
+              name={'person'}
               size={23}
-              color={focused ? color.yellow : color.white}
+              color={focused ? color.primaryColor : color.grey}
             />
           );
         default:
           return (
-            <Feather
-              name={'home'}
+            <MaterialCommunityIcons
+              name={'home-variant'}
               size={23}
-              color={focused ? color.yellow : color.white}
+              color={focused ? color.primaryColor : color.grey}
             />
           );
       }
@@ -83,7 +83,7 @@ const configTab = ({
         <Text
           style={[
             GlobalStyle.textSm,
-            {color: focused ? color.yellow : color.white},
+            {color: focused ? color.primaryColor : color.grey},
           ]}>
           {title}
         </Text>

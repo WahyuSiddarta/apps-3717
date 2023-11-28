@@ -30,6 +30,7 @@ export const MyPrimaryButton = ({
 const styles = StyleSheet.create({
   pButtonText: {
     ...GlobalStyle.textMd,
+    fontFamily: 'SourceSans3-Regular',
     color: Theme.color.white,
     paddingHorizontal: 15,
   },

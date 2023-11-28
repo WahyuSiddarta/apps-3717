@@ -1,7 +1,7 @@
 import {Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 import {useContext} from 'react';
 
-import {GlobalStyle, Theme} from '../../_data/Styles';
+import {GlobalStyle, Theme, palette} from '../../_data/Styles';
 import {SafeView} from '../common';
 import {AuthContext} from '../../_context/AuthContext';
 
@@ -20,7 +20,7 @@ const AuthScreen = ({navigation}) => {
           />
         </View>
         <View style={styles.actionContainer}>
-          <Text style={styles.title}>Create A Free Account</Text>
+          <Text style={[styles.title]}>Create A Free Account</Text>
         </View>
         <View style={{gap: spacing.l}}>
           <TouchableOpacity
@@ -44,11 +44,12 @@ const AuthScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     // backgroundColor: 'transparent',
-    backgroundColor: Theme.color.mainBackground,
+    backgroundColor: palette.primary[500],
     height: '100%',
   },
   title: {
-    ...GlobalStyle.h2,
+    ...GlobalStyle.h1,
+    ...GlobalStyle.bold,
     textAlign: 'center',
     color: color.white,
     marginBottom: spacing.m,
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
   actionButton: {
     paddingVertical: spacing.s,
     paddingHorizontal: spacing.l,
-    borderColor: color.primaryColor,
+    borderColor: palette.blueAccent[700],
     borderWidth: 2,
     borderRadius: 40,
     width: 200,
@@ -79,16 +80,17 @@ const styles = StyleSheet.create({
   actionButtonWhite: {
     paddingVertical: spacing.s,
     paddingHorizontal: spacing.l,
-    borderColor: color.white,
+    borderColor: palette.blueAccent[700],
     borderWidth: 2,
     borderRadius: 40,
     width: 200,
-    elevation: 5,
+    elevation: 3,
     alignSelf: 'center',
-    backgroundColor: Theme.color.mainBackground
+    backgroundColor: 'transparent',
   },
   registerButton: {
-    backgroundColor: color.primaryColor,
+    // backgroundColor: color.primaryColor,
+    backgroundColor: palette.blueAccent[700],
   },
   loginButtonText: {
     color: color.white,
@@ -96,6 +98,7 @@ const styles = StyleSheet.create({
   },
   registerButtonText: {
     color: color.white,
+
     textAlign: 'center',
   },
 });

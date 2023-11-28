@@ -3,7 +3,7 @@ import React from 'react';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Feather from 'react-native-vector-icons/Feather';
-import {GlobalStyle, Theme} from '../../_data/Styles';
+import {GlobalStyle, Theme, palette} from '../../_data/Styles';
 
 const {spacing, color} = Theme;
 export const Header = ({navigation, headerText}) => {
@@ -40,7 +40,7 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: color.mainBackgroundLigher,
+    backgroundColor: palette.primary[700],
   },
   iconRightContainer: {flexDirection: 'row'},
   iconContainer: {

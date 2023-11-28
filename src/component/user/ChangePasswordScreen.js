@@ -11,10 +11,6 @@ import {
 } from 'react-native';
 import React, {useContext, useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FontAwesome5Brands from 'react-native-vector-icons/FontAwesome5Pro';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import {Header, PasswordInput, SafeView, featureNotReady} from '../common';
 import {Theme} from '../../_data/Styles';
@@ -23,10 +19,6 @@ import {AuthContext} from '../../_context/AuthContext';
 import {MyPrimaryButton} from '../common/Button';
 
 const {color, spacing} = Theme;
-const leftIcon = {
-  size: 20,
-  color: color.greyLight,
-};
 const ChangePasswordScreen = ({navigation}) => {
   const {height} = useWindowDimensions();
   const {signOut} = useContext(AuthContext);
