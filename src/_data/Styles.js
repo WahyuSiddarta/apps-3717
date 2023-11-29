@@ -136,4 +136,7 @@ export const GlobalStyle = StyleSheet.create({
     paddingHorizontal: 25,
     backgroundColor: Theme.color.mainBackground,
   },
+  otherFont: {
+    fontFamily: 'SourceSans3-Regular',
+  },
 });

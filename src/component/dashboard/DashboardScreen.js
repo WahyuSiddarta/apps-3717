@@ -11,9 +11,9 @@ import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import {InsideStatusBar, SafeView, featureNotReady} from '../common';
-import {Theme, palette} from '../../_data/Styles';
+import {Theme} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
-import {TopLeader, TotalBalance} from './DashboardWidget';
+import {AccessBallance, TopLeader, TotalBalance} from './DashboardWidget';
 
 const {color, spacing} = Theme;
 const DashboardScreen = ({navigation}) => {
@@ -52,7 +52,7 @@ const DashboardScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
         <View style={{marginTop: spacing.l, gap: spacing.s}}>
-          <Text style={[GlobalStyle.h3, styles.fontWhite]}>
+          <Text style={[GlobalStyle.h3, styles.fontWhite, GlobalStyle.bold]}>
             Account Information
           </Text>
           <View style={{flexDirection: 'row'}}>
@@ -65,9 +65,9 @@ const DashboardScreen = ({navigation}) => {
           <TopLeader />
         </View>
         <View style={{marginTop: spacing.l}}>
-          <TopLeader />
+          <AccessBallance />
         </View>
-        <View style={{height: spacing.xl}} />
+        <View style={{height: 1.5 * spacing.xl}} />
       </ScrollView>
     </SafeView>
   );

@@ -83,6 +83,34 @@ export const TotalBalance = ({unit, localizePrice}) => {
     </View>
   );
 };
+export const AccessBallance = ({}) => {
+  const data = [
+    {name: 'Binance', balance: 100304},
+    {name: 'HITBTC', balance: '-'},
+    {name: 'OKEXv5', balance: 340304},
+  ];
+  return (
+    <View style={{gap: spacing.s}}>
+      <Text style={[styles.fontWhite, GlobalStyle.h3, GlobalStyle.bold]}>
+        Access Ballance
+      </Text>
+      <View style={[styles.container, {gap: spacing.m}]}>
+        {data?.map((d, index) => (
+          <View style={styles.ballanceRow}>
+            <Text
+              style={[GlobalStyle.textMd, GlobalStyle.bold, styles.fontWhite]}>
+              {d?.name}
+            </Text>
+            <Text style={[GlobalStyle.textMd, styles.fontWhite]}>
+              {d?.balance} {d?.balance > 0 ? 'USDT' : ''}
+            </Text>
+          </View>
+        ))}
+      </View>
+    </View>
+  );
+};
+
 export const TopLeader = ({}) => {
   const data = [
     {name: 'USDT-LUNC', deals: 84, bot: 4, exchanger: 'BINANCE'},
@@ -92,7 +120,9 @@ export const TopLeader = ({}) => {
   ];
   return (
     <View style={{gap: spacing.s}}>
-      <Text style={[styles.fontWhite, GlobalStyle.h3]}>Tops Pair</Text>
+      <Text style={[styles.fontWhite, GlobalStyle.h3, GlobalStyle.bold]}>
+        Tops Pair
+      </Text>
       {data?.map((d, index) => (
         <TopLeaderRow data={d} key={index} />
       ))}
@@ -155,7 +185,6 @@ const styles = StyleSheet.create({
   },
   container: {
     backgroundColor: color.secondColor,
-
     borderRadius: spacing.s,
     paddingHorizontal: spacing.l,
     paddingVertical: spacing.m,
@@ -169,5 +198,13 @@ const styles = StyleSheet.create({
     height: 15,
     width: 15,
     borderRadius: 15,
+  },
+  ballanceRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingBottom: spacing.s,
+    borderBottomWidth: 0.5,
+    borderColor: color.grey,
   },
 });

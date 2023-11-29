@@ -12,14 +12,8 @@ import {
 import {Svg, Path} from 'react-native-svg';
 import {useContext, useEffect, useState} from 'react';
 
-import {GlobalStyle, Theme, palette} from '../../_data/Styles';
-import {
-  OutsideStatusBar,
-  PasswordInput,
-  RegularInput,
-  SafeView,
-  featureNotReady,
-} from '../common';
+import {GlobalStyle, Theme} from '../../_data/Styles';
+import {OutsideStatusBar, RegularInput, SafeView} from '../common';
 import {MyPrimaryButton} from '../common/Button';
 import {AuthContext} from '../../_context/AuthContext';
 import {isEmpty, validateEmail} from '../../_helpers/utils';

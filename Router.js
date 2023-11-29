@@ -83,6 +83,7 @@ const configTab = ({
         <Text
           style={[
             GlobalStyle.textSm,
+            GlobalStyle.otherFont,
             {color: focused ? color.primaryColor : color.grey},
           ]}>
           {title}

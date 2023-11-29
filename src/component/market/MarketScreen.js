@@ -10,7 +10,7 @@ import React from 'react';
 import {LineChart} from 'react-native-gifted-charts';
 
 import {Header, InsideStatusBar, SafeView} from '../common';
-import {Theme, palette} from '../../_data/Styles';
+import {Theme} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 
 const {color, spacing} = Theme;
@@ -197,6 +197,7 @@ const MarketScreen = ({navigation}) => {
             <BotList data={0} />
           </View>
         </View>
+        <View style={{height: 1 * spacing.xl}} />
       </ScrollView>
     </SafeView>
   );
