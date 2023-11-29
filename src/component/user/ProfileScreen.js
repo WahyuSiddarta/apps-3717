@@ -14,7 +14,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import FontAwesome5Brands from 'react-native-vector-icons/FontAwesome5Pro';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
-import {Header, SafeView, featureNotReady} from '../common';
+import {Header, InsideStatusBar, SafeView, featureNotReady} from '../common';
 import {Theme} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 import {AuthContext} from '../../_context/AuthContext';
@@ -30,10 +30,7 @@ const ProfileScreen = ({navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={color.headerColor}
-      />
+      <InsideStatusBar />
       <Header navigation={navigation} headerText="Profile" />
       <ScrollView style={[GlobalStyle.container, {height: height - 120}]}>
         <View style={{width: '100%'}}>

@@ -13,7 +13,12 @@ import {Svg, Path} from 'react-native-svg';
 import {useContext, useState} from 'react';
 
 import {GlobalStyle, Theme} from '../../_data/Styles';
-import {PasswordInput, RegularInput, SafeView} from '../common';
+import {
+  OutsideStatusBar,
+  PasswordInput,
+  RegularInput,
+  SafeView,
+} from '../common';
 import {MyPrimaryButton} from '../common/Button';
 import {AuthContext} from '../../_context/AuthContext';
 import {isEmpty} from '../../_helpers/utils';
@@ -33,10 +38,7 @@ const RegisterScreen = ({navigation}) => {
   return (
     <SafeView style={{flex: 1}}>
       <ScrollView style={[GlobalStyle.container, {paddingHorizontal: 0}]}>
-        <StatusBar
-          barStyle={'dark-content'}
-          backgroundColor={color.primaryColor}
-        />
+        <OutsideStatusBar />
         <View style={{backgroundColor: color.primaryColor, height: 30}}>
           <Svg height={isFold ? 200 : 150} width={width} viewBox="0 0 1440 320">
             <Path

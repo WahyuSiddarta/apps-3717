@@ -13,7 +13,7 @@ import {useState} from 'react';
 import Clipboard from '@react-native-clipboard/clipboard';
 import Snackbar from 'react-native-snackbar';
 
-import {Header, RegularInput, SafeView} from '../common';
+import {Header, InsideStatusBar, RegularInput, SafeView} from '../common';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 import {MyPrimaryButton} from '../common/Button';
 
@@ -76,10 +76,7 @@ const ExchangerPermissionScreen = ({route, navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={color.headerColor}
-      />
+      <InsideStatusBar />
       <Header
         navigation={navigation}
         headerText={'Connect ' + (!!exchanger_name ? exchanger_name : '')}

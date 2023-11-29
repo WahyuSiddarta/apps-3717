@@ -6,13 +6,12 @@ import {
   View,
   useWindowDimensions,
 } from 'react-native';
-import React, {useContext} from 'react';
+import React from 'react';
 import {LineChart} from 'react-native-gifted-charts';
 
-import {Header, SafeView} from '../common';
+import {Header, InsideStatusBar, SafeView} from '../common';
 import {Theme, palette} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
-import {AuthContext} from '../../_context/AuthContext';
 
 const {color, spacing} = Theme;
 
@@ -178,10 +177,7 @@ const MarketScreen = ({navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={palette.primary[700]}
-      />
+      <InsideStatusBar />
       <Header navigation={navigation} headerText="Market" />
       <ScrollView style={[GlobalStyle.container, {height: height - 120}]}>
         <View style={{width: '100%'}}>

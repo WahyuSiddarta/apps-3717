@@ -1,7 +1,12 @@
-import {StyleSheet, TouchableOpacity, View, Text} from 'react-native';
+import {
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Text,
+  StatusBar,
+} from 'react-native';
 import React from 'react';
 
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Feather from 'react-native-vector-icons/Feather';
 import {GlobalStyle, Theme, palette} from '../../_data/Styles';
 
@@ -32,6 +37,16 @@ export const Header = ({navigation, headerText}) => {
     </View>
   );
 };
+
+export const InsideStatusBar = () => (
+  <StatusBar
+    barStyle={'light-content'}
+    backgroundColor={palette.primary[700]}
+  />
+);
+export const OutsideStatusBar = () => (
+  <StatusBar barStyle={'dark-content'} backgroundColor={color.primaryColor} />
+);
 
 const style = StyleSheet.create({
   container: {

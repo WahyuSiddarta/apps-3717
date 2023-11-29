@@ -12,7 +12,13 @@ import {
 import React, {useContext, useState} from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 
-import {Header, PasswordInput, SafeView, featureNotReady} from '../common';
+import {
+  Header,
+  OutsideStatusBar,
+  PasswordInput,
+  SafeView,
+  featureNotReady,
+} from '../common';
 import {Theme} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 import {AuthContext} from '../../_context/AuthContext';
@@ -35,7 +41,7 @@ const ChangePasswordScreen = ({navigation}) => {
 
   return (
     <SafeView>
-      <StatusBar barStyle={'light-content'} backgroundColor={'#161f44'} />
+      <OutsideStatusBar />
       <Header navigation={navigation} headerText="Change password" />
       <ScrollView style={[GlobalStyle.container, {height: height - 145}]}>
         <View style={{width: '100%'}}>

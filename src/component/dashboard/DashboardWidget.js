@@ -6,7 +6,12 @@ import {GlobalStyle, Theme} from '../../_data/Styles';
 const {spacing, color} = Theme;
 export const TotalBalance = ({unit, localizePrice}) => {
   // const sliceColor = ['#384EAA', '#5b38aa', '#3887aa', '#38aa5b'];
-  const sliceColor = ['#e4bc15', '#15e455', '#153de4', '#e415a5'];
+  const sliceColor = [
+    'rgb(97, 205, 187)',
+    'rgb(232, 193, 160)',
+    'rgb(241, 225, 91)',
+    'rgb(232, 168, 56)',
+  ];
   const series = [100, 130, 100, 100];
   const {width} = useWindowDimensions();
   const width_ = ((width - 80) / 2) * 1;
@@ -98,7 +103,7 @@ export const TopLeader = ({}) => {
 const TopLeaderRow = ({data}) => {
   const active = ((data.deals - data.bot) / data.deals) * 100;
   const series = [active, 100 - active];
-  const sliceColor = ['#765793', '#89b39f'];
+  const sliceColor = ['rgb(232, 193, 160)', 'rgb(232, 168, 56)'];
   return (
     <View style={[styles.container, {flexDirection: 'row'}]}>
       <View style={{justifyContent: 'center', flex: 1, marginRight: 8}}>

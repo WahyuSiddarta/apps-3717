@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 
-import {Header, SafeView} from '../common';
+import {Header, InsideStatusBar, SafeView} from '../common';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 
 const {color, spacing} = Theme;
@@ -29,10 +29,7 @@ const ExchangerListScreen = ({route, navigation}) => {
   ];
   return (
     <SafeView>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={color.headerColor}
-      />
+      <InsideStatusBar />
       <Header navigation={navigation} headerText="Link Exchanger" />
       <ScrollView style={[GlobalStyle.container, {height: height - 85}]}>
         <View style={styles.textContainer}>

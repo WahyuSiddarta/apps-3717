@@ -19,7 +19,7 @@ import Foundation from 'react-native-vector-icons/Foundation';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import {SafeView} from '../common';
+import {InsideStatusBar, SafeView} from '../common';
 import {GlobalStyle, Theme} from '../../_data/Styles';
 import {MyPrimaryButton} from '../common/Button';
 import {useIsFold} from '../../_hooks';
@@ -63,10 +63,7 @@ const RobotScreen = ({navigation}) => {
   return (
     // eslint-disable-next-line react/react-in-jsx-scope
     <SafeView>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={color.headerColor}
-      />
+      <InsideStatusBar />
       <View style={{backgroundColor: color.mainBackground}}>
         <BottomSheetModalProvider>
           <ScrollView

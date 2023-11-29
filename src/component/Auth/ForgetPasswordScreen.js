@@ -14,6 +14,7 @@ import {useContext, useEffect, useState} from 'react';
 
 import {GlobalStyle, Theme, palette} from '../../_data/Styles';
 import {
+  OutsideStatusBar,
   PasswordInput,
   RegularInput,
   SafeView,
@@ -58,10 +59,7 @@ const ForgetPasswordScreen = ({navigation}) => {
   return (
     <SafeView style={{flex: 1}}>
       <ScrollView style={[GlobalStyle.container, {paddingHorizontal: 0}]}>
-        <StatusBar
-          barStyle={'dark-content'}
-          backgroundColor={palette.primary[700]}
-        />
+        <OutsideStatusBar />
         <View style={{backgroundColor: color.primaryColor, height: 30}}>
           <Svg height={isFold ? 200 : 150} width={width} viewBox="0 0 1440 320">
             <Path

@@ -10,7 +10,7 @@ import {
 import React from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import {SafeView, featureNotReady} from '../common';
+import {InsideStatusBar, SafeView, featureNotReady} from '../common';
 import {Theme, palette} from '../../_data/Styles';
 import {GlobalStyle} from '../../_data/Styles';
 import {TopLeader, TotalBalance} from './DashboardWidget';
@@ -27,11 +27,7 @@ const DashboardScreen = ({navigation}) => {
   }, []);
   return (
     <SafeView>
-      <StatusBar
-        barStyle={'light-content'}
-        backgroundColor={palette.primary[700]}
-      />
-
+      <InsideStatusBar />
       <ScrollView
         style={[GlobalStyle.container, styles.container]}
         refreshControl={
